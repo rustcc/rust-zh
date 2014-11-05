@@ -1,5 +1,8 @@
+Rust入门教程
+============
 
-原文链接：http://doc.rust-lang.org/guide.html
+
+原文链接：`http://doc.rust-lang.org/guide.html`
 
 1. 安装Rust
 2. Hello, world
