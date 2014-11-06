@@ -94,7 +94,7 @@ rustc 0.12.0-nightly (b7aa03a3c 2014-09-28 11:38:01 +0000)
 如果没看到这个信息，你可以在下面这些地方寻求帮助：
 
 * QQ群： 144605258；
-* [IRC channel](irc://irc.mozilla.org/#rust), 可以使用 [Mibbit](http://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) 访问。
+* [IRC channel irc://irc.mozilla.org/#rust](irc://irc.mozilla.org/#rust), 可以使用 [Mibbit](http://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) 访问。
 * [Rust 邮件列表](https://mail.mozilla.org/listinfo/rust-dev)；
 * [Reddit Rust 区](http://www.reddit.com/r/rust)；
 * [StackOverflow](http://stackoverflow.com/questions/tagged/rust).
