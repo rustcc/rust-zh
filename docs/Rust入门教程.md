@@ -5,33 +5,33 @@ Rust入门教程
 
 ### 目录
 
-1. [安装Rust]
-2. [Hello, world]
-3. [Cargo 介绍]
-4. [变量绑定]
-5. [条件]
-6. [函数]
-7. [注释]
-8. [复合数据类型]
-9. [匹配]
-10. [循环]
-11. [字符串]
-12. [数组、向量和切片]
-13. [标准输入]
-14. [猜谜游戏]
-15. [Crates和模块]
-16. [测试]
-17. [指针]
-18. [模式]
-19. [方法]
-20. [闭包]
-21. [迭代器]
-22. [泛型]
-23. [特征]
-24. [任务]
-25. [宏]
-26. [不安全块]
-27. [结论]
+1. [安装Rust]()
+2. [Hello, world]()
+3. [Cargo 介绍]()
+4. [变量绑定]()
+5. [条件]()
+6. [函数]()
+7. [注释]()
+8. [复合数据类型]()
+9. [匹配]()
+10. [循环]()
+11. [字符串]()
+12. [数组、向量和切片]()
+13. [标准输入]()
+14. [猜谜游戏]()
+15. [Crates和模块]()
+16. [测试]()
+17. [指针]()
+18. [模式]()
+19. [方法]()
+20. [闭包]()
+21. [迭代器]()
+22. [泛型]()
+23. [特征]()
+24. [任务]()
+25. [宏]()
+26. [不安全块]()
+27. [结论]()
 
 -------------------------
 嗨！欢迎阅读本 Rust 入门教程。如果你想学习如何使用 Rust 编程，那算是来对地方了。Rust 是一个关注于“高阶-裸机”的系统级编程语言——将对机器的低阶控制与对世界的高阶抽象结合在一起（人不是计算机，高级语言的作用即充当人与机器之间的翻译）。我们认为 Rust 真的很特别，在看完本教程之后，希望你也如此。
@@ -94,7 +94,7 @@ rustc 0.12.0-nightly (b7aa03a3c 2014-09-28 11:38:01 +0000)
 如果没看到这个信息，你可以在下面这些地方寻求帮助：
 
 * QQ群： 144605258；
-* [the #rust IRC channel on irc.mozilla.org](irc://irc.mozilla.org/#rust), 可以使用 [Mibbit](http://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) 访问。
+* [IRC channel](irc://irc.mozilla.org/#rust), 可以使用 [Mibbit](http://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust) 访问。
 * [Rust 邮件列表](https://mail.mozilla.org/listinfo/rust-dev)；
 * [Reddit Rust 区](http://www.reddit.com/r/rust)；
 * [StackOverflow](http://stackoverflow.com/questions/tagged/rust).
