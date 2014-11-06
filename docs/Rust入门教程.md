@@ -6,7 +6,7 @@ Rust入门教程
 ### 目录
 
 1. [安装 Rust](#%E5%AE%89%E8%A3%85-rust)
-2. [Hello, world!](hello-world)
+2. [Hello, world!](#hello-world)
 3. [Cargo 介绍]()
 4. [变量绑定]()
 5. [条件]()
@@ -195,7 +195,7 @@ $ ./main  # or main.exe on Windows
 ```
 运行这个可执行文件，就打印出 `Hello, world!` 到终端里面来了。
 
-如果你来自动态语言（如 Ruby, Python 或 JavaScript）社区，你可能不习惯编译和执行两部分开。Rust 是一个 **时间提前的编译语言**，意味着你可以编译一个程序，把它分发给其他人，他们不需要安装过 Rust。如果你给别人一个 `.rb` 或 `.py` 或 `.js` 文件，他需要安装过 Ruby/Python/Javascript（好处是一个命令就可以编译执行这个程序）。在语言设计层面，所有东西都需要权衡，Rust 做了它自己的选择。
+如果你来自动态语言（如 Ruby, Python 或 JavaScript）社区，你可能不习惯编译和执行两部分开。Rust 是一个 **预先编译语言**，意味着你可以编译一个程序，把它分发给其他人，他们不需要安装过 Rust。如果你给别人一个 `.rb` 或 `.py` 或 `.js` 文件，他需要安装过 Ruby/Python/Javascript（好处是一个命令就可以编译执行这个程序）。在语言设计层面，所有东西都需要权衡，Rust 做了它自己的选择。
 
 恭喜！你已经正式写了一个 Rust 程序了。你已经变成一个 Rust 程序员咯！欢迎！
 
