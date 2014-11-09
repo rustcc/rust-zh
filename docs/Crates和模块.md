@@ -2,25 +2,13 @@
 
 Rust 有一个强健的模块系统，但跟其它编程语言也有点不一样。Rust 的模块系统有两个主要的组件： **crate** 和 **模块**。
 
-Rust features a strong module system, but it works a bit differently than in
-other programming languages. Rust's module system has two main components:
-**crate**s and **module**s.
+一个 crate 是 Rust 的独立编译单元。Rust 总是一次编译一个 crate，产生一个库或可执行文件。然而，可执行文件依赖于库，而一些库有依赖于其它库。为了解决这个问题，crate 可以依赖于其它 crate。
 
-A crate is Rust's unit of independent compilation. Rust always compiles one
-crate at a time, producing either a library or an executable. However, executables
-usually depend on libraries, and many libraries depend on other libraries as well.
-To support this, crates can depend on other crates.
+每个 crate 包含一组层级的模块。这个树以一个单一模块（叫做 **crate 根**）开始。在 crate 根上，我们可以声明其它模块，而那些模块又可以包含其它模块，随便多深都可以。
 
-Each crate contains a hierarchy of modules. This tree starts off with a single
-module, called the **crate root**. Within the crate root, we can declare other
-modules, which can contain other modules, as deeply as you'd like.
+注意我们还没有提到文件相关的东西。Rust 并不施加任务特定的关系到你的文件系统和你的模块结构。这意味着，Rust 默认用一种方便的方法去文件系统上查找模块，但这个方法也是可以重载的。
 
-Note that we haven't mentioned anything about files yet. Rust does not impose a
-particular relationship between your filesystem structure and your module
-structure. That said, there is a conventional approach to how Rust looks for
-modules on the file system, but it's also overridable.
-
-Enough talk, let's build something! Let's make a new project called `modules`.
+够了，让我们构建点东西！先创建一个工程，叫作 `modules`：
 
 ```{bash,ignore}
 $ cd ~/projects
@@ -28,7 +16,7 @@ $ cargo new modules --bin
 $ cd modules
 ```
 
-Let's double check our work by compiling:
+用编译再次核查一下我们的工作：
 
 ```{bash,notrust}
 $ cargo run
@@ -37,12 +25,9 @@ $ cargo run
 Hello, world!
 ```
 
-Excellent! So, we already have a single crate here: our `src/main.rs` is a crate.
-Everything in that file is in the crate root. A crate that generates an executable
-defines a `main` function inside its root, as we've done here.
+非常棒！我们已经有了一个 crate 了：`src/main.rs` 就是一个 crate。那个文件里的每样东西都位于 crate 根上。一个 crate 在它的根上定义了一个 `main` 函数后，就会产生一个可执行文件。
 
-Let's define a new module inside our crate. Edit `src/main.rs` to look
-like this:
+让我们在这个 crate 里面定义一个新的模块。编辑 `src/main.rs` 看起来像下面这个样子：
 
 ```
 fn main() {
@@ -56,27 +41,17 @@ mod hello {
 }
 ```
 
-We now have a module named `hello` inside of our crate root. Modules use
-`snake_case` naming, like functions and variable bindings.
+现在，我们的 crate 根上有了一个模块，名叫 `hello`。模块使用 `下划线命名法` 命名，就像函数和变量绑定那样。
 
-Inside the `hello` module, we've defined a `print_hello` function. This will
-also print out our hello world message. Modules allow you to split up your
-program into nice neat boxes of functionality, grouping common things together,
-and keeping different things apart. It's kinda like having a set of shelves:
-a place for everything and everything in its place.
+在 `hello` 模块中，我们定义了一个 `print_hello` 函数，来打印我们的 hello world 信息。模块允许你切分你的程序为清晰整洁的功能单元，把共同的东西抽出来，保持不同的东西分离开。这有点像有一组货架：一所纳万物，万物得其所。
 
-To call our `print_hello` function, we use the double colon (`::`):
+要调用函数 `print_hello`，我们使用双冒号 `::`：
 
 ```{rust,ignore}
 hello::print_hello();
 ```
 
-You've seen this before, with `io::stdin()` and `rand::random()`. Now you know
-how to make your own. However, crates and modules have rules about
-**visibility**, which controls who exactly may use the functions defined in a
-given module. By default, everything in a module is private, which means that
-it can only be used by other functions in the same module. This will not
-compile:
+以前见过这种用法，`io::stdin()` 和 `rand::random()`，现在你可以自己做了。然而，crate 和模块有 **可见性** 相关的规则，用来精确控制哪些函数可以被外部使用。默认，模块中的每样东西都是私有的，意味着只能在同一模块中使用。下面的代码无法编译：
 
 ```{rust,ignore}
 fn main() {
@@ -90,7 +65,7 @@ mod hello {
 }
 ```
 
-It gives an error:
+会报下面这个错：
 
 ```{notrust,ignore}
    Compiling modules v0.0.1 (file:///home/you/projects/modules)
@@ -99,7 +74,7 @@ src/main.rs:2     hello::print_hello();
                   ^~~~~~~~~~~~~~~~~~
 ```
 
-To make it public, we use the `pub` keyword:
+为了使它公开，使用 `pub` 关键字：
 
 ```{rust}
 fn main() {
@@ -113,8 +88,8 @@ mod hello {
 }
 ```
 
-Usage of the `pub` keyword is sometimes called 'exporting', because
-we're making the function available for other modules. This will work:
+`pub` 关键字使用的时候，有时叫作 “导出”，因为我们使这个函数可以被其它模块使用。看下面的编译运行结构：
+
 
 ```{notrust,ignore}
 $ cargo run
@@ -123,5 +98,4 @@ $ cargo run
 Hello, world!
 ```
 
-Nice! There are more things we can do with modules, including moving them into
-their own files. This is enough detail for now.
+太好了！对模块还可以做更多事情的，包括移动代码到单独的文件中。不过现在已经够了。
