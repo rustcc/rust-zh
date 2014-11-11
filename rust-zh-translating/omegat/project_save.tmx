@@ -4,6 +4,329 @@
   <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="3.1.7" segtype="sentence" srclang="EN-US"/>
   <body>
 <!-- Default translations -->
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Ownership</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T141627Z" creationid="LIIGO" creationdate="20141108T141627Z">
+        <seg> Ownership</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg># Tools</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131941Z" creationid="LIIGO" creationdate="20141108T131941Z">
+        <seg># 工具</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>% A 30-minute Introduction to Rust</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T144944Z" creationid="liigo" creationdate="20141107T144944Z">
+        <seg>% 30分钟认识Rust语言</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(Rust's tooling does
+[play nice with external libraries written in those
+tools](http://crates.io/native-build.html), if you need to.)</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T141645Z" creationid="LIIGO" creationdate="20141108T141310Z">
+        <seg>（但是如果需要，Rust的工具可以跟他们[和平相处](http://crates.io/native-build.html)。）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Again, we'll discuss the exact details of all of this syntax soon.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T135026Z" creationid="LIIGO" creationdate="20141108T135026Z">
+        <seg>后面再讲具体的语法细节。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Because this is about high-level concepts, you don't need to actually install
+Rust to follow along.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T145127Z" creationid="liigo" creationdate="20141107T145127Z">
+        <seg>本文仅介绍高层概念，不涉及具体的编程细节，因而你甚至不需要安装Rust。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Because we only specified a repository without a version, if someone else were
+to try out our project at a later date, when `semver` was updated, they would
+get a different, possibly incompatible version.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T135856Z" creationid="LIIGO" creationdate="20141108T135651Z">
+        <seg>因为我们没有指定外部库的版本号（意味着总是采用其最新版），一旦该库被作者升级（且不兼容旧版），我们的项目将受到影响。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Cargo generated a 'hello world' for us.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133526Z" creationid="LIIGO" creationdate="20141108T133526Z">
+        <seg>Cargo自动生成了这句输出“hello world”的代码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Enough about tools, let's talk code!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T141541Z" creationid="LIIGO" creationdate="20141108T141541Z">
+        <seg>有关工具方面内容，告一段落，下面讲代码！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Finally,
+we'll talk about how Rust breaks down the perceived dichotomy between speed
+and safety.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131931Z" creationid="LIIGO" creationdate="20141108T131931Z">
+        <seg>最后，谈谈Rust怎样同时到高效和安全。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>First, let's check out `Cargo.toml`:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133104Z" creationid="LIIGO" creationdate="20141108T133104Z">
+        <seg>先看看`Cargo.toml`文件的内容：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>For now,
+let's compile and run it:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T135045Z" creationid="LIIGO" creationdate="20141108T135045Z">
+        <seg>再次编译和运行：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Getting started on a new Rust project is incredibly easy, thanks to Rust's
+package manager, [Cargo](http://crates.io).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T132334Z" creationid="LIIGO" creationdate="20141108T132334Z">
+        <seg>因为有 [Cargo](http://crates.io)，Rust的包管理器（package manager），我们可以很容易的创建新的Rust项目。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Here's what's in `src/main.rs`:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133431Z" creationid="LIIGO" creationdate="20141108T133431Z">
+        <seg>再来看看`src/main.rs`文件内容：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you'd like to anyway, check out [the
+homepage](http://rust-lang.org) for explanation.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T145313Z" creationid="liigo" creationdate="20141107T145313Z">
+        <seg>其他内容可参考[Rust官方网站](http://rust-lang.org)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It
+accomplishes these goals by being memory safe without using garbage collection.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T145021Z" creationid="liigo" creationdate="20141107T145021Z">
+        <seg>它不使用垃圾收集器（GC），同时做到了内存安全。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It does not require prior experience with systems programming, but you
+may find the syntax easier if you've used a 'curly brace' programming language
+before, like C or JavaScript.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T145055Z" creationid="liigo" creationdate="20141107T145055Z">
+        <seg>阅读本文不需要您有系统级编程的经验，但如果您曾经用过C或JavaScript之类编程语言，将更有利于接受Rust的类似语法。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's check out what Cargo has generated for us:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T132759Z" creationid="LIIGO" creationdate="20141108T132759Z">
+        <seg>执行上述命令之后，看看Cargo生成了什么目录和文件：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's compile and run it:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133740Z" creationid="LIIGO" creationdate="20141108T133740Z">
+        <seg>让我们编译并运行它：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Now, you can pull in that library using `extern crate` in
+`main.rs`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T134942Z" creationid="LIIGO" creationdate="20141108T134837Z">
+        <seg>现在可以在`main.rs`文件里使用`semver`库（ `extern crate semver;`）：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust is a modern systems programming language focusing on safety and speed.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T145001Z" creationid="liigo" creationdate="20141107T145001Z">
+        <seg>Rust是一个先进的系统级编程语言，专注于安全和速度。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The concepts are more important than the syntax,
+so don't worry if you don't get every last detail: you can read [the
+Guide](guide.html) to get a more complete explanation.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T145108Z" creationid="liigo" creationdate="20141107T145108Z">
+        <seg>概念比语法更重要，先不要拘泥于语法，必要时再去阅读[入门手册](guide.md)获得详细解释。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Then, we'll talk about Rust's most interesting feature, **ownership**, and
+then discuss how it makes concurrency easier to reason about.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131415Z" creationid="LIIGO" creationdate="20141108T131415Z">
+        <seg>然后讲Rust最有趣的特性，**所有权（ownership）**，然后讲怎样方便的使用并发（concurrency）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There is a lot more here, and this is a whirlwind tour, but you should feel
+right at home if you've used tools like [Bundler](http://bundler.io/),
+[npm](https://www.npmjs.org/), or [pip](https://pip.pypa.io/en/latest/).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T140618Z" creationid="LIIGO" creationdate="20141108T140618Z">
+        <seg>还有很多内容，这里就不讲了。这只是一个简短的教材。如果您曾经用过[Bundler](http://bundler.io/)、
+[npm](https://www.npmjs.org/)或[pip](https://pip.pypa.io/en/latest/)，会发现Cargo跟他们相似。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There's no `Makefile`s or endless `autotools` output here.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T141415Z" creationid="LIIGO" creationdate="20141108T140707Z">
+        <seg>这里没有`Makefile`和`autotools`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This gives us repeatable builds.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T140042Z" creationid="LIIGO" creationdate="20141108T140042Z">
+        <seg>以后编译时都固定采用此版本号，不受它们升级的影响。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This introduction will give you a rough idea of what Rust is like, eliding many
+details.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="liigo" changedate="20141107T145425Z" creationid="liigo" creationdate="20141107T145043Z">
+        <seg>本文将向您粗略的介绍Rust是什么。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is all we need to get started.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133033Z" creationid="LIIGO" creationdate="20141108T133033Z">
+        <seg>就是这些。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is called a **manifest**, and it contains all of the metadata that Cargo
+needs to compile your project.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133403Z" creationid="LIIGO" creationdate="20141108T133403Z">
+        <seg>`Cargo.toml`被称为**清单（manifest）**，它包含了编译此项目所需的所有元数据（metadata）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To show off Rust, let's talk about how easy it is to get started with Rust.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131054Z" creationid="LIIGO" creationdate="20141108T130849Z">
+        <seg>我们先讲，开始使用Rust是很容易的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To solve this problem, Cargo
+produces a file, `Cargo.lock`, which records the versions of any dependencies.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T135933Z" creationid="LIIGO" creationdate="20141108T135830Z">
+        <seg>为了解决此问题，Cargo自动生成文件`Cargo.lock`，里面保存了本项目中所有依赖库的版本号。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To start a new project with Cargo, use `cargo new`:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T132407Z" creationid="LIIGO" creationdate="20141108T132407Z">
+        <seg>要创建新项目，执行命令 `cargo new`：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Using an external dependency in Rust is incredibly easy.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133914Z" creationid="LIIGO" creationdate="20141108T133914Z">
+        <seg>引用外部依赖项对Cargo来说是小菜一碟。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We'll talk more about the syntax here
+later, but that's what Rust code looks like!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133659Z" creationid="LIIGO" creationdate="20141108T133659Z">
+        <seg>Rust源代码就是这个样子，后面还会讲到语法部分。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We're passing `--bin` because we're making a binary program: if we
+were making a library, we'd leave it off.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T132637Z" creationid="LIIGO" creationdate="20141108T132637Z">
+        <seg>这里传入参数`--bin`，是因为我们要创建一个可执行项目；如果要创建一个库，就不需要这个参数了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You add a line to
+your `Cargo.toml`:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T134111Z" creationid="LIIGO" creationdate="20141108T134022Z">
+        <seg>只需要在`Cargo.toml`文件里添加两行声明（[dependencies.*]）：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You added the `semver` library, which parses version numbers and compares them
+according to the [SemVer specification](http://semver.org/).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141108T134439Z" creationid="LIIGO" creationdate="20141108T134439Z">
+        <seg>这里添加的依赖项，是`semver`库，用于解析和比较版本号，详见 [SemVer规范](http://semver.org/)。</seg>
+      </tuv>
+    </tu>
 <!-- Alternative translations -->
   </body>
 </tmx>
