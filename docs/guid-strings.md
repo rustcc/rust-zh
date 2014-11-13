@@ -8,7 +8,7 @@ Rust有两个字符串类型：`&str`和`String`。
 
 ## &str
 
-&str称为`字符串切片`，字符串的文字量就是`&str`格式。
+&str称为`字符串切片`，字符串的字面量就是`&str`格式。
 
 ```
 let string = "hello there.";
@@ -35,7 +35,7 @@ let stack_str: &str = str::from_utf8(x).unwrap();
 
 ## String
 
-`String`定义了的具有`owned`所有权的，并且可以动态生长的字符串类型，也是UTF-8编码。`String`主要是在堆上生成。
+`String`定义了具有`owned`所有权的，并且可以动态生长的字符串类型，也是UTF-8编码。`String`主要是在堆上生成。
 
 ```
 let mut s = "Hello".to_string();
