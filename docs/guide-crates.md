@@ -63,7 +63,7 @@ deps  examples  libphrases-066b8293cb7b2145.rlib  native
 
 `libphrases-066b8293cb7b2145.rlib`就是生成后的库文件。
 
-## 由多个文件组成的Crate
+## 分割为多个文件组成的Crate
 
 如果每个`Crate`仅包含一个文件，一旦工程代码增加，这个`Crate`将变得很大，而难以维护。通常都是将这个`Crate`分割成多个文件，Rust支持如下文件组织方式：
 
@@ -152,7 +152,7 @@ fn goodbye() -> String {
 ```
 下面，让我们来进行模块之间的相互调用(仅定了函数，而没有使用，在`cargo build`的时候，Rust会自动报错误)。
 
-## 引入定义的Crates
+## 引入Crates定义的库
 
 前面已经定义了一个名为"phrases"的`Crate`，如何使用这个库呢？
 
@@ -284,7 +284,7 @@ pub fn goodbye() -> String {
 
 前面，在`src/main.rs`引用下级模块的函数时，输入了`phrases::english::greetings::hello()`这个太长，并重复输入了4次，不简洁。Rust提供了另一个关键字`use`来定义当前o可见泛围。
 
-## 使用use导入Modules
+## 使用use引入Modules
 
 Rust提供了`use`关键字能够将下级模块的可见泛围引入到当前，下面将`src/main.rs`里的代码修改如下：
 
@@ -322,7 +322,7 @@ fn main() {
 extern crate phrases;
 
 use phrases::english::greetings::hello;
-use phrases::chinese::greeting::hello;
+use phrases::chinese::greetings::hello;
 
 fn main() {
     println!("Hello in English: {}", hello());
@@ -350,7 +350,7 @@ To learn more, run the command again with --verbose.
 use phrases::english::{greetings, farewells};
 ```
 
-## 使用pub use内部引入模块
+## 使用pub use在内部Module引入其它模块
 
 我们可以在已定义`Crate`内部的其它模块中，引入函数，这样可以在既定的内部代码组织结构中添加附加接口。
 
