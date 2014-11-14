@@ -14,7 +14,7 @@ Rust有两个字符串类型：`&str`和`String`。
 let string = "hello there.";
 ```
 
-同其它Rust的类型一样，字符串切片也有`lifetime`，一个字符串常量就是`&'static str`。字符串切片在作为函数参数的时候，可以没有明确的`lifetime`，因为这时可以自动推断：
+同其它Rust的类型一样，字符串切片也有`lifetime`，一个字符串常量就是`&'static str`。字符串切片在作为函数参数的时候，可以没有明确的`lifetime`，因为这时可以自动判断出来的：
 
 ```
 fn takes_slice(slice: &str) {
