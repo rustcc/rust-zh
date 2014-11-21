@@ -133,7 +133,7 @@ Some productions are defined by exclusion of particular Unicode characters:
 
 ```{.ebnf .gram}
 comment : block_comment | line_comment ;
-block_comment : "/*" block_comment_body * '*' + '/' ;
+block_comment : "/*" block_comment_body * "*/" ;
 block_comment_body : [block_comment | character] * ;
 line_comment : "//" non_eol * ;
 ```
@@ -216,8 +216,60 @@ rather than referring to it by name or some other evaluation rule. A literal is
 a form of constant expression, so is evaluated (primarily) at compile time.
 
 ```{.ebnf .gram}
-literal : string_lit | char_lit | byte_string_lit | byte_lit | num_lit ;
+lit_suffix : ident;
+literal : [ string_lit | char_lit | byte_string_lit | byte_lit | num_lit ] lit_suffix ?;
 ```
+
+The optional suffix is only used for certain numeric literals, but is
+reserved for future extension, that is, the above gives the lexical
+grammar, but a Rust parser will reject everything but the 12 special
+cases mentioned in [Number literals](#number-literals) below.
+
+#### Examples
+
+##### Characters and strings
+
+|   | Example | Number of `#` pairs allowed | Available characters | Escapes | Equivalent to |
+|---|---------|-----------------------------|----------------------|---------|---------------|
+| [Character](#character-literals) | `'H'` | `N/A` | All unicode | `\'` & [Byte escapes](#byte-escapes) & [Unicode escapes](#unicode-escapes) | `N/A` |
+| [String](#string-literals) | `"hello"` | `N/A` | All unicode | `\"` & [Byte escapes](#byte-escapes) & [Unicode escapes](#unicode-escapes) | `N/A` |
+| [Raw](#raw-string-literals) | `r##"hello"##`  | `0...` | All unicode | `N/A` | `N/A` |
+| [Byte](#byte-literals) | `b'H'` | `N/A` | All ASCII | `\'` & [Byte escapes](#byte-escapes) | `u8` |
+| [Byte string](#byte-string-literals) | `b"hello"` | `N/A`  | All ASCII | `\"` & [Byte escapes](#byte-escapes) | `&'static [u8]` |
+| [Raw byte string](#raw-byte-string-literals) | `br##"hello"##` | `0...` | All ASCII | `N/A` | `&'static [u8]` (unsure...not stated) |
+
+##### Byte escapes
+
+|   | Name |
+|---|------|
+| `\x7F` | 8-bit character code (exactly 2 digits) |
+| `\n` | Newline |
+| `\r` | Carriage return |
+| `\t` | Tab |
+| `\\` | Backslash |
+
+##### Unicode escapes
+|   | Name |
+|---|------|
+| `\u7FFF` | 16-bit character code (exactly 4 digits) |
+| `\U7EEEFFFF` | 32-bit character code (exactly 8 digits) |
+
+##### Numbers
+
+| [Number literals](#number-literals)`*` | Example | Exponentiation | Suffixes |
+|----------------------------------------|---------|----------------|----------|
+| Decimal integer | `98_222i` | `N/A` | Integer suffixes |
+| Hex integer | `0xffi` | `N/A` | Integer suffixes |
+| Octal integer | `0o77i` | `N/A` | Integer suffixes |
+| Binary integer | `0b1111_0000i` | `N/A` | Integer suffixes |
+| Floating-point | `123.0E+77f64` | `Optional` | Floating-point suffixes |
+
+`*` All number literals allow `_` as a visual separator: `1_234.0E+18f64`
+
+##### Suffixes
+| Integer | Floating-point |
+|---------|----------------|
+| `i` (`int`), `u` (`uint`), `u8`, `i8`, `u16`, `i16`, `u32`, `i32`, `u64`, `i64` | `f32`, `f64` |
 
 #### Character and string literals
 
@@ -247,14 +299,20 @@ nonzero_dec: '1' | '2' | '3' | '4'
            | '5' | '6' | '7' | '8' | '9' ;
 ```
 
+##### Character literals
+
 A _character literal_ is a single Unicode character enclosed within two
 `U+0027` (single-quote) characters, with the exception of `U+0027` itself,
 which must be _escaped_ by a preceding U+005C character (`\`).
+
+##### String literals
 
 A _string literal_ is a sequence of any Unicode characters enclosed within two
 `U+0022` (double-quote) characters, with the exception of `U+0022` itself,
 which must be _escaped_ by a preceding `U+005C` character (`\`), or a _raw
 string literal_.
+
+##### Character escapes
 
 Some additional _escapes_ are available in either character or non-raw string
 literals. An escape starts with a `U+005C` (`\`) and continues with one of the
@@ -274,6 +332,8 @@ following forms:
   `U+000D` (CR) or `U+0009` (HT) respectively.
 * The _backslash escape_ is the character `U+005C` (`\`) which must be
   escaped in order to denote *itself*.
+
+##### Raw string literals
 
 Raw string literals do not process any escapes. They start with the character
 `U+0072` (`r`), followed by zero or more of the character `U+0023` (`#`) and a
@@ -304,8 +364,8 @@ r##"foo #"# bar"##;                // foo #"# bar
 #### Byte and byte string literals
 
 ```{.ebnf .gram}
-byte_lit : 'b' '\x27' byte_body '\x27' ;
-byte_string_lit : 'b' '"' string_body * '"' | 'b' 'r' raw_byte_string ;
+byte_lit : "b\x27" byte_body '\x27' ;
+byte_string_lit : "b\x22" string_body * '\x22' | "br" raw_byte_string ;
 
 byte_body : ascii_non_single_quote
           | '\x5c' [ '\x27' | common_escape ] ;
@@ -316,11 +376,15 @@ raw_byte_string : '"' raw_byte_string_body '"' | '#' raw_byte_string '#' ;
 
 ```
 
+##### Byte literals
+
 A _byte literal_ is a single ASCII character (in the `U+0000` to `U+007F`
 range) enclosed within two `U+0027` (single-quote) characters, with the
 exception of `U+0027` itself, which must be _escaped_ by a preceding U+005C
 character (`\`), or a single _escape_. It is equivalent to a `u8` unsigned
 8-bit integer _number literal_.
+
+##### Byte string literals
 
 A _byte string literal_ is a sequence of ASCII characters and _escapes_
 enclosed within two `U+0022` (double-quote) characters, with the exception of
@@ -340,6 +404,8 @@ following forms:
   `0x0D` (ASCII CR) or `0x09` (ASCII HT) respectively.
 * The _backslash escape_ is the character `U+005C` (`\`) which must be
   escaped in order to denote its ASCII encoding `0x5C`.
+
+##### Raw byte string literals
 
 Raw byte string literals do not process any escapes. They start with the
 character `U+0062` (`b`), followed by `U+0072` (`r`), followed by zero or more
@@ -371,27 +437,20 @@ b"\\x52"; br"\x52";                  // \x52
 #### Number literals
 
 ```{.ebnf .gram}
-num_lit : nonzero_dec [ dec_digit | '_' ] * num_suffix ?
-        | '0' [       [ dec_digit | '_' ] * num_suffix ?
-              | 'b'   [ '1' | '0' | '_' ] + int_suffix ?
-              | 'o'   [ oct_digit | '_' ] + int_suffix ?
-              | 'x'   [ hex_digit | '_' ] + int_suffix ? ] ;
+num_lit : nonzero_dec [ dec_digit | '_' ] * float_suffix ?
+        | '0' [       [ dec_digit | '_' ] * float_suffix ?
+              | 'b'   [ '1' | '0' | '_' ] +
+              | 'o'   [ oct_digit | '_' ] +
+              | 'x'   [ hex_digit | '_' ] +  ] ;
 
-num_suffix : int_suffix | float_suffix ;
+float_suffix : [ exponent | '.' dec_lit exponent ? ] ? ;
 
-int_suffix : 'u' int_suffix_size ?
-           | 'i' int_suffix_size ? ;
-int_suffix_size : [ '8' | '1' '6' | '3' '2' | '6' '4' ] ;
-
-float_suffix : [ exponent | '.' dec_lit exponent ? ] ? float_suffix_ty ? ;
-float_suffix_ty : 'f' [ '3' '2' | '6' '4' ] ;
 exponent : ['E' | 'e'] ['-' | '+' ] ? dec_lit ;
 dec_lit : [ dec_digit | '_' ] + ;
 ```
 
 A _number literal_ is either an _integer literal_ or a _floating-point
-literal_. The grammar for recognizing the two kinds of literals is mixed, as
-they are differentiated by suffixes.
+literal_. The grammar for recognizing the two kinds of literals is mixed.
 
 ##### Integer literals
 
@@ -406,9 +465,9 @@ An _integer literal_ has one of four forms:
 * A _binary literal_ starts with the character sequence `U+0030` `U+0062`
   (`0b`) and continues as any mixture of binary digits and underscores.
 
-An integer literal may be followed (immediately, without any spaces) by an
-_integer suffix_, which changes the type of the literal. There are two kinds of
-integer literal suffix:
+Like any literal, an integer literal may be followed (immediately,
+without any spaces) by an _integer suffix_, which forcibly sets the
+type of the literal. There are 10 valid values for an integer suffix:
 
 * The `i` and `u` suffixes give the literal type `int` or `uint`,
   respectively.
@@ -443,11 +502,9 @@ A _floating-point literal_ has one of two forms:
 * A single _decimal literal_ followed by an _exponent_.
 
 By default, a floating-point literal has a generic type, and, like integer
-literals, the type must be uniquely determined from the context. A
-floating-point literal may be followed (immediately, without any spaces) by a
-_floating-point suffix_, which changes the type of the literal. There are two
-floating-point suffixes: `f32`, and `f64` (the 32-bit and 64-bit floating point
-types).
+literals, the type must be uniquely determined from the context. There are two valid
+_floating-point suffixes_, `f32` and `f64` (the 32-bit and 64-bit floating point
+types), which explicitly determine the type of the literal.
 
 Examples of floating-point literals of various forms:
 
@@ -458,10 +515,9 @@ Examples of floating-point literals of various forms:
 12E+99_f64;                        // type f64
 ```
 
-##### Unit and boolean literals
+##### Boolean literals
 
-The _unit value_, the only value of the type that has the same name, is written
-as `()`. The two values of the boolean type are written `true` and `false`.
+The two values of the boolean type are written `true` and `false`.
 
 ### Symbols
 
@@ -1118,13 +1174,13 @@ Rust:
 ##### Unsafe functions
 
 Unsafe functions are functions that are not safe in all contexts and/or for all
-possible inputs. Such a function must be prefixed with the keyword `unsafe`.
+possible inputs. Such a function must be prefixed with the keyword `unsafe` and
+can only be called from an `unsafe` block or another `unsafe` function.
 
 ##### Unsafe blocks
 
-A block of code can also be prefixed with the `unsafe` keyword, to permit
-calling `unsafe` functions or dereferencing raw pointers within a safe
-function.
+A block of code can be prefixed with the `unsafe` keyword, to permit calling
+`unsafe` functions or dereferencing raw pointers within a safe function.
 
 When a programmer has sufficient conviction that a sequence of potentially
 unsafe operations is actually safe, they can encapsulate that sequence (taken
@@ -1144,12 +1200,11 @@ represented with reference-counted pointers in safe code. By using `unsafe`
 blocks to represent the reverse links as raw pointers, it can be implemented
 with only boxes.
 
-##### Behavior considered unsafe
+##### Behavior considered undefined
 
-This is a list of behavior which is forbidden in all Rust code. Type checking
-provides the guarantee that these issues are never caused by safe code. An
-`unsafe` block or function is responsible for never invoking this behaviour or
-exposing an API making it possible for it to occur in safe code.
+The following is a list of behavior which is forbidden in all Rust code,
+including within `unsafe` blocks and `unsafe` functions. Type checking provides
+the guarantee that these issues are never caused by safe code.
 
 * Data races
 * Dereferencing a null/dangling raw pointer
@@ -1332,8 +1387,8 @@ enum Animal {
   Cat
 }
 
-let mut a: Animal = Dog;
-a = Cat;
+let mut a: Animal = Animal::Dog;
+a = Animal::Cat;
 ```
 
 Enumeration constructors can have either named or unnamed fields:
@@ -1346,8 +1401,8 @@ enum Animal {
     Cat { name: String, weight: f64 }
 }
 
-let mut a: Animal = Dog("Cocoa".to_string(), 37.2);
-a = Cat { name: "Spotty".to_string(), weight: 2.7 };
+let mut a: Animal = Animal::Dog("Cocoa".to_string(), 37.2);
+a = Animal::Cat { name: "Spotty".to_string(), weight: 2.7 };
 # }
 ```
 
@@ -1863,7 +1918,7 @@ the namespace hierarchy as it normally would.
 ## Attributes
 
 ```{.ebnf .gram}
-attribute : '#' '!' ? '[' meta_item ']' ;
+attribute : "#!" ? '[' meta_item ']' ;
 meta_item : ident [ '=' literal
                   | '(' meta_seq ')' ] ? ;
 meta_seq : meta_item [ ',' meta_seq ] ? ;
@@ -1961,8 +2016,10 @@ On an `extern` block, the following attributes are interpreted:
   name and type. This is feature gated and the exact behavior is
   implementation-defined (due to variety of linker invocation syntax).
 - `link` - indicate that a native library should be linked to for the
-  declarations in this block to be linked correctly. See [external
-  blocks](#external-blocks)
+  declarations in this block to be linked correctly. `link` supports an optional `kind`
+  key with three possible values: `dylib`, `static`, and `framework`. See [external blocks](#external-blocks) for more about external blocks. Two
+  examples: `#[link(name = "readline")]` and
+  `#[link(name = "CoreFoundation", kind = "framework")]`.
 
 On declarations inside an `extern` block, the following attributes are
 interpreted:
@@ -2512,11 +2569,6 @@ The currently implemented features of the reference compiler are:
                closure as `once` is unlikely to be supported going forward. So
                they are hidden behind this feature until they are to be removed.
 
-* `overloaded_calls` - Allow implementing the `Fn*` family of traits on user
-                       types, allowing overloading the call operator (`()`).
-                       This feature may still undergo changes before being
-                       stabilized.
-
 * `phase` - Usage of the `#[phase]` attribute allows loading compiler plugins
             for custom lints or syntax extensions. The implementation is
             considered unwholesome and in need of overhaul, and it is not clear
@@ -2524,7 +2576,7 @@ The currently implemented features of the reference compiler are:
 
 * `plugin_registrar` - Indicates that a crate has [compiler plugins][plugin] that it
                        wants to load. As with `phase`, the implementation is
-                       in need of a overhaul, and it is not clear that plugins
+                       in need of an overhaul, and it is not clear that plugins
                        defined using this will continue to work.
 
 * `quote` - Allows use of the `quote_*!` family of macros, which are
@@ -2559,11 +2611,8 @@ The currently implemented features of the reference compiler are:
 * `trace_macros` - Allows use of the `trace_macros` macro, which is a nasty
                    hack that will certainly be removed.
 
-* `unboxed_closure_sugar` - Allows using `|Foo| -> Bar` as a trait bound
-                            meaning one of the `Fn` traits. Still
-                            experimental.
-
-* `unboxed_closures` - A work in progress feature with many known bugs.
+* `unboxed_closures` - Rust's new closure design, which is currently a work in
+                       progress feature with many known bugs.
 
 * `unsafe_destructor` - Allows use of the `#[unsafe_destructor]` attribute,
                         which is considered wildly unsafe and will be
@@ -2581,7 +2630,7 @@ there isn't a parser error first). The directive in this case is no longer
 necessary, and it's likely that existing code will break if the feature isn't
 removed.
 
-If a unknown feature is found in a directive, it results in a compiler error.
+If an unknown feature is found in a directive, it results in a compiler error.
 An unknown feature is one which has never been recognized by the compiler.
 
 # Statements and expressions
@@ -2651,9 +2700,10 @@ An expression may have two roles: it always produces a *value*, and it may have
 value, and has effects during *evaluation*. Many expressions contain
 sub-expressions (operands). The meaning of each kind of expression dictates
 several things:
-  * Whether or not to evaluate the sub-expressions when evaluating the
-  * expression The order in which to evaluate the sub-expressions How to
-  * combine the sub-expressions' values to obtain the value of the expression.
+
+* Whether or not to evaluate the sub-expressions when evaluating the expression
+* The order in which to evaluate the sub-expressions
+* How to combine the sub-expressions' values to obtain the value of the expression
 
 In this way, the structure of expressions dictates the structure of execution.
 Blocks are just another kind of expression, so blocks, statements, expressions,
@@ -2682,7 +2732,7 @@ When an lvalue is evaluated in an _lvalue context_, it denotes a memory
 location; when evaluated in an _rvalue context_, it denotes the value held _in_
 that memory location.
 
-When an rvalue is used in lvalue context, a temporary un-named lvalue is
+When an rvalue is used in an lvalue context, a temporary un-named lvalue is
 created and used instead. A temporary's lifetime equals the largest lifetime
 of any reference that points to it.
 
@@ -2714,7 +2764,7 @@ or an item. Path expressions are [lvalues](#lvalues,-rvalues-and-temporaries).
 
 ### Tuple expressions
 
-Tuples are written by enclosing one or more comma-separated expressions in
+Tuples are written by enclosing zero or more comma-separated expressions in
 parentheses. They are used to create [tuple-typed](#tuple-types) values.
 
 ```{.tuple}
@@ -2722,6 +2772,11 @@ parentheses. They are used to create [tuple-typed](#tuple-types) values.
 (0.0, 4.5);
 ("a", 4u, true);
 ```
+
+### Unit expressions
+
+The expression `()` denotes the _unit value_, the only value of the type with
+the same name.
 
 ### Structure expressions
 
@@ -2830,7 +2885,7 @@ foo().x;
 ```
 
 A field access is an [lvalue](#lvalues,-rvalues-and-temporaries) referring to
-the value of that field. When the type providing the field inherits mutabilty,
+the value of that field. When the type providing the field inherits mutability,
 it can be [assigned](#assignment-expressions) to.
 
 Also, if the type of the expression to the left of the dot is a pointer, it is
@@ -3105,11 +3160,10 @@ then the expression completes.
 Some examples of call expressions:
 
 ```
-# use std::from_str::FromStr;
 # fn add(x: int, y: int) -> int { 0 }
 
 let x: int = add(1, 2);
-let pi: Option<f32> = FromStr::from_str("3.14");
+let pi: Option<f32> = from_str("3.14");
 ```
 
 ### Lambda expressions
@@ -3302,12 +3356,12 @@ fields of a particular variant. For example:
 ```
 enum List<X> { Nil, Cons(X, Box<List<X>>) }
 
-let x: List<int> = Cons(10, box Cons(11, box Nil));
+let x: List<int> = List::Cons(10, box List::Cons(11, box List::Nil));
 
 match x {
-    Cons(_, box Nil) => panic!("singleton list"),
-    Cons(..)         => return,
-    Nil              => panic!("empty list")
+    List::Cons(_, box List::Nil) => panic!("singleton list"),
+    List::Cons(..)               => return,
+    List::Nil                    => panic!("empty list")
 }
 ```
 
@@ -3318,7 +3372,7 @@ between `_` and `..` is that the pattern `C(_)` is only type-correct if `C` has
 exactly one argument, while the pattern `C(..)` is type-correct for any enum
 variant `C`, regardless of how many arguments `C` has.
 
-Used inside a array pattern, `..` stands for any number of elements, when the
+Used inside an array pattern, `..` stands for any number of elements, when the
 `advanced_slice_patterns` feature gate is turned on. This wildcard can be used
 at most once for a given array, which implies that it cannot be used to
 specifically match elements that are at an unknown distance from both ends of a
@@ -3365,16 +3419,16 @@ An example of a `match` expression:
 
 enum List<X> { Nil, Cons(X, Box<List<X>>) }
 
-let x: List<int> = Cons(10, box Cons(11, box Nil));
+let x: List<int> = List::Cons(10, box List::Cons(11, box List::Nil));
 
 match x {
-    Cons(a, box Cons(b, _)) => {
+    List::Cons(a, box List::Cons(b, _)) => {
         process_pair(a, b);
     }
-    Cons(10, _) => {
+    List::Cons(10, _) => {
         process_ten();
     }
-    Nil => {
+    List::Nil => {
         return;
     }
     _ => {
@@ -3396,10 +3450,10 @@ enum List { Nil, Cons(uint, Box<List>) }
 
 fn is_sorted(list: &List) -> bool {
     match *list {
-        Nil | Cons(_, box Nil) => true,
-        Cons(x, ref r @ box Cons(_, _)) => {
+        List::Nil | List::Cons(_, box List::Nil) => true,
+        List::Cons(x, ref r @ box List::Cons(_, _)) => {
             match *r {
-                box Cons(y, _) => (x <= y) && is_sorted(&**r),
+                box List::Cons(y, _) => (x <= y) && is_sorted(&**r),
                 _ => panic!()
             }
         }
@@ -3407,7 +3461,7 @@ fn is_sorted(list: &List) -> bool {
 }
 
 fn main() {
-    let a = Cons(6, box Cons(7, box Cons(42, box Nil)));
+    let a = List::Cons(6, box List::Cons(7, box List::Cons(42, box List::Nil)));
     assert!(is_sorted(&a));
 }
 
@@ -3435,7 +3489,7 @@ use to avoid conflicts is simply to name variants with upper-case letters, and
 local variables with lower-case letters.
 
 Multiple match patterns may be joined with the `|` operator. A range of values
-may be specified with `..`. For example:
+may be specified with `...`. For example:
 
 ```
 # let x = 2i;
@@ -3559,17 +3613,14 @@ The machine types are the following:
 
 #### Machine-dependent integer types
 
-The Rust type `uint` [^rustuint] is an
-unsigned integer type with target-machine-dependent size. Its size, in
-bits, is equal to the number of bits required to hold any memory address on
-the target machine.
+The `uint` type is an unsigned integer type with the same number of bits as the
+platform's pointer type. It can represent every memory address in the process.
 
-The Rust type `int` [^rustint]  is a two's complement signed integer type with
-target-machine-dependent size. Its size, in bits, is equal to the size of the
-rust type `uint` on the same target machine.
-
-[^rustuint]: A Rust `uint` is analogous to a C99 `uintptr_t`.
-[^rustint]: A Rust `int` is analogous to a C99 `intptr_t`.
+The `int` type is a signed integer type with the same number of bits as the
+platform's pointer type. The theoretical upper bound on object and array size
+is the maximum `int` value. This ensures that `int` can be used to calculate
+differences between pointers into an object or array and can address every byte
+within an object along with one byte past the end.
 
 ### Textual types
 
@@ -3581,7 +3632,7 @@ is not a surrogate), represented as a 32-bit unsigned word in the 0x0000 to
 0xD7FF or 0xE000 to 0x10FFFF range. A `[char]` array is effectively an UCS-4 /
 UTF-32 string.
 
-A value of type `str` is a Unicode string, represented as a array of 8-bit
+A value of type `str` is a Unicode string, represented as an array of 8-bit
 unsigned bytes holding a sequence of UTF-8 codepoints. Since `str` is of
 unknown size, it is not a _first class_ type, but can only be instantiated
 through a pointer type, such as `&str` or `String`.
@@ -3712,7 +3763,7 @@ enum List<T> {
   Cons(T, Box<List<T>>)
 }
 
-let a: List<int> = Cons(7, box Cons(13, box Nil));
+let a: List<int> = List::Cons(7, box List::Cons(13, box List::Nil));
 ```
 
 ### Pointer types
@@ -4047,19 +4098,19 @@ initialized; this is enforced by the compiler.
 
 ### Boxes
 
-An  _box_ is a reference to a heap allocation holding another value, which is
+A _box_ is a reference to a heap allocation holding another value, which is
 constructed by the prefix operator `box`. When the standard library is in use,
-the type of an box is `std::owned::Box<T>`.
+the type of a box is `std::owned::Box<T>`.
 
-An example of an box type and value:
+An example of a box type and value:
 
 ```
 let x: Box<int> = box 10;
 ```
 
-Box values exist in 1:1 correspondence with their heap allocation, copying an
+Box values exist in 1:1 correspondence with their heap allocation, copying a
 box value makes a shallow copy of the pointer. Rust will consider a shallow
-copy of an box to move ownership of the value. After a value has been moved,
+copy of a box to move ownership of the value. After a value has been moved,
 the source location cannot be used unless it is reinitialized.
 
 ```

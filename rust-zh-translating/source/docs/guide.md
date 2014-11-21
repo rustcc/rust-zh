@@ -159,6 +159,8 @@ $ ./main # or main.exe on Windows
 Hello, world!
 ```
 
+You can also run these examples on [play.rust-lang.org](http://play.rust-lang.org/) by clicking on the arrow that appears in the upper right of the example when you mouse over the code.
+
 Success! Let's go over what just happened in detail.
 
 ```{rust}
@@ -1149,7 +1151,7 @@ enum StringResult {
 }
 ```
 Where a `StringResult` is either an `StringOK`, with the result of a computation, or an
-`ErrorReason` with a `String` explaining what caused the computation to fail. This kind of
+`ErrorReason` with a `String` explaining what caused the computation to fail. These kinds of
 `enum`s are actually very useful and are even part of the standard library.
 
 As you can see `enum`s with values are quite a powerful tool for data representation,
@@ -1263,17 +1265,17 @@ enum OptionalInt {
 }
 
 fn main() {
-    let x = Value(5);
-    let y = Missing;
+    let x = OptionalInt::Value(5);
+    let y = OptionalInt::Missing;
 
     match x {
-        Value(n) => println!("x is {}", n),
-        Missing  => println!("x is missing!"),
+        OptionalInt::Value(n) => println!("x is {}", n),
+        OptionalInt::Missing  => println!("x is missing!"),
     }
 
     match y {
-        Value(n) => println!("y is {}", n),
-        Missing  => println!("y is missing!"),
+        OptionalInt::Value(n) => println!("y is {}", n),
+        OptionalInt::Missing  => println!("y is missing!"),
     }
 }
 ```
@@ -1481,7 +1483,7 @@ s.push_str(", world.");
 println!("{}", s);
 ```
 
-You can coerce a `String` into a `&str` with the `as_slice()` method:
+You can get a `&str` view into a `String` with the `as_slice()` method:
 
 ```{rust}
 fn takes_slice(slice: &str) {
@@ -1514,7 +1516,7 @@ fn compare(string: String) {
 }
 ```
 
-Converting a `String` to a `&str` is cheap, but converting the `&str` to a
+Viewing a `String` as a `&str` is cheap, but converting the `&str` to a
 `String` involves allocating memory. No reason to do that unless you have to!
 
 That's the basics of strings in Rust! They're probably a bit more complicated
@@ -1702,17 +1704,17 @@ enum OptionalInt {
 }
 
 fn main() {
-    let x = Value(5);
-    let y = Missing;
+    let x = OptionalInt::Value(5);
+    let y = OptionalInt::Missing;
 
     match x {
-        Value(n) => println!("x is {}", n),
-        Missing  => println!("x is missing!"),
+        OptionalInt::Value(n) => println!("x is {}", n),
+        OptionalInt::Missing  => println!("x is missing!"),
     }
 
     match y {
-        Value(n) => println!("y is {}", n),
-        Missing  => println!("y is missing!"),
+        OptionalInt::Value(n) => println!("y is {}", n),
+        OptionalInt::Missing  => println!("y is missing!"),
     }
 }
 ```
@@ -1901,8 +1903,8 @@ result is a link to
 click on that result, we'll be taken to its documentation page.
 
 This page shows us a few things: the type signature of the function, some
-explanatory text, and then an example. Let's modify our code to add in the
-`random` function:
+explanatory text, and then an example. Let's try to modify our code to add in the
+`random` function and see what happens:
 
 ```{rust,ignore}
 use std::io;
@@ -3709,7 +3711,7 @@ enum List {
 }
 
 fn main() {
-    let list = Node(0, box Node(1, box Nil));
+    let list = List::Node(0, box List::Node(1, box List::Nil));
 }
 ```
 
@@ -3895,11 +3897,11 @@ enum OptionalInt {
     Missing,
 }
 
-let x = Value(5i);
+let x = OptionalInt::Value(5i);
 
 match x {
-    Value(..) => println!("Got an int!"),
-    Missing   => println!("No such luck."),
+    OptionalInt::Value(..) => println!("Got an int!"),
+    OptionalInt::Missing   => println!("No such luck."),
 }
 ```
 
@@ -3911,12 +3913,12 @@ enum OptionalInt {
     Missing,
 }
 
-let x = Value(5i);
+let x = OptionalInt::Value(5i);
 
 match x {
-    Value(i) if i > 5 => println!("Got an int bigger than five!"),
-    Value(..) => println!("Got an int!"),
-    Missing   => println!("No such luck."),
+    OptionalInt::Value(i) if i > 5 => println!("Got an int bigger than five!"),
+    OptionalInt::Value(..) => println!("Got an int!"),
+    OptionalInt::Missing   => println!("No such luck."),
 }
 ```
 
@@ -5274,7 +5276,7 @@ let result = task::try(proc() {
 
 This task will randomly panic or succeed. `task::try` returns a `Result`
 type, so we can handle the response like any other computation that may
-panic.
+fail.
 
 # Macros
 
