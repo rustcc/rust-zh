@@ -9,9 +9,9 @@ Rust编程语言官方文档中文化
 
 本项目的主要目录结构介绍：
 
-- docs：Rust官方文档和教程中文版（优先翻译部分，原文来自https://github.com/rust-lang/rust/tree/master/src/doc）
-- rfcs：Rust官方设计文档中文版（RFC：征求修正意见书，原文来自https://github.com/rust-lang/rfcs/tree/master/text）
-- blogs：Rust官方博客中文版（原文来自http://blog.rust-lang.org）
+- docs：Rust官方文档和教程中文版（优先翻译部分，原文来自 https://github.com/rust-lang/rust/tree/master/src/doc ）
+- rfcs：Rust官方设计文档中文版（RFC：征求修正意见书，原文来自 https://github.com/rust-lang/rfcs/tree/master/text ）
+- blogs：Rust官方博客中文版（原文来自 http://blog.rust-lang.org ）
 - other：Rust相关的第三方文章和博客中文版（必要时自建子目录）
 - rust-zh-translating：翻译组内部工作目录，OmegaT项目目录（初步试用）
 
