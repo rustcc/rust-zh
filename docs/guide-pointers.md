@@ -407,24 +407,22 @@ fn rc_succ(x: std::rc::Rc<int>) -> int { *x + 1 }
 
 # Boxes
 
-`Box<T>` is Rust's 'boxed pointer' type. Boxes provide the simplest form of
-heap allocation in Rust. Creating a box looks like this:
+`Box<T>`是Rust的‘boxed指针’类型。boxes提供了在Rust中最简单的堆分配形式。像这样来
+创建一个box：
 
 ```{rust}
 let x = box(std::boxed::HEAP) 5i;
 ```
 
-`box` is a keyword that does 'placement new,' which we'll talk about in a bit.
-`box` will be useful for creating a number of heap-allocated types, but is not
-quite finished yet. In the meantime, `box`'s type defaults to
-`std::boxed::HEAP`, and so you can leave it off:
+`box`是实施'placement new'的一个关键字，我们过会儿就会讲到。`box`对于创建各种堆分配
+类型非常有用，但是现在还没有完全完成。与此同时，`box`的类型默认是`std::boxed::HEAP`，
+所以你可以省略它：
 
 ```{rust}
 let x = box 5i;
 ```
 
-As you might assume from the `HEAP`, boxes are heap allocated. They are
-deallocated automatically by Rust when they go out of scope:
+正如你可能设想是从`HEAP`的，boxes就是堆分配的。它们将在它们离开作用域的时候自动释放。
 
 ```{rust}
 {
@@ -435,16 +433,11 @@ deallocated automatically by Rust when they go out of scope:
 } // x is destructed and its memory is free'd here
 ```
 
-However, boxes do _not_ use reference counting or garbage collection. Boxes are
-what's called an **affine type**. This means that the Rust compiler, at compile
-time, determines when the box comes into and goes out of scope, and inserts the
-appropriate calls there. Furthermore, boxes are a specific kind of affine type,
-known as a **region**. You can read more about regions [in this paper on the
-Cyclone programming
-language](http://www.cs.umd.edu/projects/cyclone/papers/cyclone-regions.pdf).
+然而，boxes不使用引用计数和垃圾回收。boxes被叫做**affine type(仿射类型？)**。这意味着
+Rust编译器在编译期决定box什么时候开始和结束作用域，然后在那儿插入正确的调用。此外，box
+是一种特殊的affine type，被称为**区域（region）**。你可以进一步了解[区域](http://www.cs.umd.edu/projects/cyclone/papers/cyclone-regions.pdf)。
 
-You don't need to fully grok the theory of affine types or regions to grok
-boxes, though. As a rough approximation, you can treat this Rust code:
+要理解boxes，你无需透彻理解affine type和区域的理论。你可以近似当作是这样的Rust代码：
 
 ```{rust}
 {
@@ -454,7 +447,7 @@ boxes, though. As a rough approximation, you can treat this Rust code:
 }
 ```
 
-As being similar to this C code:
+也可当作是类似这样的C代码：
 
 ```{notrust,ignore}
 {
@@ -468,23 +461,17 @@ As being similar to this C code:
 }
 ```
 
-Of course, this is a 10,000 foot view. It leaves out destructors, for example.
-But the general idea is correct: you get the semantics of `malloc`/`free`, but
-with some improvements:
+当然，这只是一个10,000英尺高空的俯瞰。例如，它去掉了析构函数。但是大体想法是对的：你得到
+`malloc/free`的语义，并做一些提升：
 
-1. It's impossible to allocate the incorrect amount of memory, because Rust
-   figures it out from the types.
-2. You cannot forget to `free` memory you've allocated, because Rust does it
-   for you.
-3. Rust ensures that this `free` happens at the right time, when it is truly
-   not used. Use-after-free is not possible.
-4. Rust enforces that no other writeable pointers alias to this heap memory,
-   which means writing to an invalid pointer is not possible.
+1. 它不可能错误的分配内存大小了，因为Rust根据类型算出它。
+2. 你不会忘记`free`你分配的内存了，因为Rust为你做了。
+3. Rust确保这个`free`发送在正确的时机——当它真正没有被用到了。释放后使用是不可能的。
+4. Rust强制这块内存没有其它可写指针别名，意味着写一个非法指针是不可能的。
 
-See the section on references or the [lifetimes guide](guide-lifetimes.html)
-for more detail on how lifetimes work.
+进一步了解生命周期工作的细节请看引用一节或[生命周期指南](guide-lifetimes.html)。
 
-Using boxes and references together is very common. For example:
+一起使用boxes和引用是很常见的。例如：
 
 ```{rust}
 fn add_one(x: &int) -> int {
@@ -498,10 +485,10 @@ fn main() {
 }
 ```
 
-In this case, Rust knows that `x` is being 'borrowed' by the `add_one()`
-function, and since it's only reading the value, allows it.
+在这个例子中，Rust知道`x`被`add_one()`函数借用了，并且因为它只是读了值，所有是
+允许的。
 
-We can borrow `x` multiple times, as long as it's not simultaneous:
+只要不是同时进行，我们可以借用多次`x`：
 
 ```{rust}
 fn add_one(x: &int) -> int {
@@ -517,7 +504,7 @@ fn main() {
 }
 ```
 
-Or as long as it's not a mutable borrow. This will error:
+或者只要不是可变借用。这个会报错：
 
 ```{rust,ignore}
 fn add_one(x: &mut int) -> int {
@@ -532,18 +519,15 @@ fn main() {
 }
 ```
 
-Notice we changed the signature of `add_one()` to request a mutable reference.
+注意我们把`add_one()`的签名变成了要求一个可变引用。
 
 ## Best practices
 
-Boxes are appropriate to use in two situations: Recursive data structures,
-and occasionally, when returning data.
+box在两种情况下的应用是恰当的：递归的数据结构，和偶尔会有的，返回数据。
 
-### Recursive data structures
+### 递归数据结构
 
-Sometimes, you need a recursive data structure. The simplest is known as a
-'cons list':
-
+有时，你需要一个递归的数据结构。最简单的叫做'cons list':
 
 ```{rust}
 #[deriving(Show)]
@@ -558,26 +542,23 @@ fn main() {
 }
 ```
 
-This prints:
+这个输出:
 
 ```{notrust,ignore}
 Cons(1, box Cons(2, box Cons(3, box Nil)))
 ```
 
-The reference to another `List` inside of the `Cons` enum variant must be a box,
-because we don't know the length of the list. Because we don't know the length,
-we don't know the size, and therefore, we need to heap allocate our list.
+在`Cons`枚举变量中引用另外一个`List`的必须是一个box，因为我们不知道这个链表的长度。
+因为我们不知道这个链表的长度，我们就不知道大小，因此，我们需要堆分配我们的链表。
 
-Working with recursive or other unknown-sized data structures is the primary
-use-case for boxes.
+配合递归或者其它未知大小的数据结构一起工作是boxes的主要用况。
 
-### Returning data
+### 返回数据
 
-This is important enough to have its own section entirely. The TL;DR is this:
-you don't generally want to return pointers, even when you might in a language
-like C or C++.
+这个主题已经重要到拥有用它自己的完整章节了。太长，不想读的话，就是这个意思咯：你基本
+不想反复指针，即使你可能是用像C或C++这种语言。
 
-See [Returning Pointers](#returning-pointers) below for more.
+更多细节看下面的[返回指针](#返回指针)。
 
 # Rc and Arc
 
@@ -597,8 +578,7 @@ This part is coming soon.
 
 # Returning Pointers
 
-In many languages with pointers, you'd return a pointer from a function
-so as to avoid copying a large data structure. For example:
+在许多有指针的语言中，你从函数返回一个指针以避免拷贝一个大的数据结构。例如：
 
 ```{rust}
 struct BigStruct {
@@ -623,10 +603,9 @@ fn main() {
 }
 ```
 
-The idea is that by passing around a box, you're only copying a pointer, rather
-than the hundred `int`s that make up the `BigStruct`.
+这个想法是依赖传递一个box，你只拷贝要给指针而不是由一百个`int`组成的`BigStruct`。
 
-This is an antipattern in Rust. Instead, write this:
+这在Rust中是一个错误的模式。相反的，这样写：
 
 ```{rust}
 struct BigStruct {
@@ -651,18 +630,13 @@ fn main() {
 }
 ```
 
-This gives you flexibility without sacrificing performance.
+这在不牺牲姓名的情况下给了你灵活性。
 
-You may think that this gives us terrible performance: return a value and then
-immediately box it up ?! Isn't that the worst of both worlds? Rust is smarter
-than that. There is no copy in this code. main allocates enough room for the
-`box , passes a pointer to that memory into foo as x, and then foo writes the
-value straight into that pointer. This writes the return value directly into
-the allocated box.
+你或许想这给我们糟糕的性能：返回一个值然后立马对它装箱?!这不是世界上最烂的吗？Rust比
+那要更智能。在这份代码里面不会有拷贝。主函数为box分配了足够的空间，传递一个指向那块内存
+的指针进入foo当作x，然后foo直接往那个指针里面写值。这把返回值直接写入了分配好的box。[^勘误1]
 
-This is important enough that it bears repeating: pointers are not for
-optimizing returning values from your code. Allow the caller to choose how they
-want to use your output.
+这是非常重要值得反复重申的一点：指针不是为了优化你代码中的返回值。允许调用者选择按他们所希望的来使用你的输出。
 
 # Creating your own Pointers
 
@@ -716,3 +690,5 @@ Here's a quick rundown of Rust's pointer types:
 * [API documentation for Box](std/boxed/index.html)
 * [Lifetimes guide](guide-lifetimes.html)
 * [Cyclone paper on regions](http://www.cs.umd.edu/projects/cyclone/papers/cyclone-regions.pdf), which inspired Rust's lifetime system
+
+[^勘误11]: 这段话的描述看上去有误，就算无误也应该是不清楚的，留待以后考证，先译完再说。
