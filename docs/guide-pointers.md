@@ -636,7 +636,8 @@ fn main() {
 那要更智能。在这份代码里面不会有拷贝。主函数为box分配了足够的空间，传递一个指向那块内存
 的指针进入foo当作x，然后foo直接往那个指针里面写值。这把返回值直接写入了分配好的box。[^勘误1]
 
-这是非常重要值得反复重申的一点：指针不是为了优化你代码中的返回值。允许调用者选择按他们所希望的来使用你的输出。
+这是非常重要值得反复重申的一点：指针不是为了优化你代码中的返回值。允许调用者选择按他们所
+希望的来使用你的输出。
 
 # Creating your own Pointers
 
@@ -646,11 +647,10 @@ This part is coming soon.
 
 This part is coming soon.
 
-# Patterns and `ref`
+# 模式和`ref`
 
-When you're trying to match something that's stored in a pointer, there may be
-a situation where matching directly isn't the best option available. Let's see
-how to properly handle this:
+当你向匹配某些存储在指针中的东西，可能说存在直接匹配并不是最佳选择的情况。让我们看如何
+来恰当的处理这个例子：
 
 ```{rust,ignore}
 fn possibly_print(x: &Option<String>) {
@@ -665,30 +665,28 @@ fn possibly_print(x: &Option<String>) {
 }
 ```
 
-The `ref s` here means that `s` will be of type `&String`, rather than type
-`String`.
+`ref s`在这儿意味着`s`将是类型`&String`，而不是类型`String`。
 
-This is important when the type you're trying to get access to has a destructor
-and you don't want to move it, you just want a reference to it.
+这在你试图访问一个拥有析构函数的类型并且只想引用而不想移动它的时候是非常重要的。
 
 # 速查表
 
-Here's a quick rundown of Rust's pointer types:
+这儿是一个Rust指针类型的快速概览：
 
-| Type         | Name                | Summary                                                             |
-|--------------|---------------------|---------------------------------------------------------------------|
-| `&T`         | Reference           | Allows one or more references to read `T`                           |
-| `&mut T`     | Mutable Reference   | Allows a single reference to read and write `T`                     |
-| `Box<T>`     | Box                 | Heap allocated `T` with a single owner that may read and write `T`. |
-| `Rc<T>`      | "arr cee" pointer   | Heap allocated `T` with many readers                                |
-| `Arc<T>`     | Arc pointer         | Same as above, but safe sharing across threads                      |
-| `*const T`   | Raw pointer         | Unsafe read access to `T`                                           |
-| `*mut T`     | Mutable raw pointer | Unsafe read and write access to `T`                                 |
+| 类型         | 名字                | 概要                                                             |
+|--------------|---------------------|-----------------------------------------------------------------|
+| `&T`         | 引用                | 允许一个或多个引用读取 `T`                                        |
+| `&mut T`     | 可变引用            | 允许仅一个引用读写`T`                                             |
+| `Box<T>`     | Box                 | 堆分配一个唯一持有者可读写的`T`                                   |
+| `Rc<T>`      | "arr cee" 指针      | 堆分配一个可多人读取的`T`                                         |
+| `Arc<T>`     | Arc 指针            | 同上，但是线程间共享是安全的                                      |
+| `*const T`   | Raw 指针            | 不安全读访问`T`                                                  |
+| `*mut T`     | 可变 raw 指针       | 不安全读写访问`T`                                                |
 
-# Related resources
+# 相关资料
 
-* [API documentation for Box](std/boxed/index.html)
-* [Lifetimes guide](guide-lifetimes.html)
-* [Cyclone paper on regions](http://www.cs.umd.edu/projects/cyclone/papers/cyclone-regions.pdf), which inspired Rust's lifetime system
+* [Box的API文档](std/boxed/index.html)
+* [生命周期指南](guide-lifetimes.html)
+* [Cyclone关于区域的论文](http://www.cs.umd.edu/projects/cyclone/papers/cyclone-regions.pdf), 正是它启发了Rust的生命周期系统。
 
 [^勘误11]: 这段话的描述看上去有误，就算无误也应该是不清楚的，留待以后考证，先译完再说。
