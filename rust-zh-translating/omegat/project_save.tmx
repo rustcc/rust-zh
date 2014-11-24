@@ -6,6 +6,14 @@
 <!-- Default translations -->
     <tu>
       <tuv lang="EN-US">
+        <seg># Installing Rust</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015915Z" creationid="LIIGO" creationdate="20141123T015915Z">
+        <seg># 安装 Rust</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Ownership</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T141627Z" creationid="LIIGO" creationdate="20141108T141627Z">
@@ -30,6 +38,22 @@
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>% The Rust Guide</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T014023Z" creationid="LIIGO" creationdate="20141123T014023Z">
+        <seg>% Rust入门教程</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>(If you're concerned about `curl | sudo sh`, please keep reading.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020206Z" creationid="LIIGO" creationdate="20141123T020206Z">
+        <seg>（如果你担心`curl | sudo sh`，请继续往前看。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>(Rust's tooling does
 [play nice with external libraries written in those
 tools](http://crates.io/native-build.html), if you need to.)</seg>
@@ -44,6 +68,43 @@ tools](http://crates.io/native-build.html), if you need to.)</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T135026Z" creationid="LIIGO" creationdate="20141108T135026Z">
         <seg>后面再讲具体的语法细节。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>And printing information to the screen is a pretty
+common thing to do.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T024603Z" creationid="LIIGO" creationdate="20141123T024603Z">
+        <seg>而且，打印文本信息到屏幕上是再正常不过的事情了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>And they should be!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021306Z" creationid="LIIGO" creationdate="20141123T021306Z">
+        <seg>有这种担心是正常的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>And we
+promise that this method will not be the way to install Rust forever: it's just
+the easiest way to keep people updated while Rust is in its alpha state.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021551Z" creationid="LIIGO" creationdate="20141123T021551Z">
+        <seg>我们承诺这种脚本安装方式不会永远持续下去：它仅仅是目前Alpha 阶段最简单的升级方式而已。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Basically,
+when you do this, you are trusting that the good people who maintain Rust
+aren't going to hack your computer and do bad things.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021330Z" creationid="LIIGO" creationdate="20141123T021330Z">
+        <seg>因为按照上面那样安装，就得首先信任下载下来的脚本是无害的，信任 Rust 维护者不会入侵你的电脑做坏事。</seg>
       </tuv>
     </tu>
     <tu>
@@ -67,10 +128,88 @@ get a different, possibly incompatible version.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>But these are the ones most likely to work, as they have the most
+testing.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021944Z" creationid="LIIGO" creationdate="20141123T021944Z">
+        <seg>Rust在上述三大平台工作的最好，因为测试最充分。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Cargo generated a 'hello world' for us.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133526Z" creationid="LIIGO" creationdate="20141108T133526Z">
         <seg>Cargo自动生成了这句输出“hello world”的代码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Click
+that link, and you'll be chatting with other Rustaceans (a silly nickname we
+call ourselves), and we can help you out.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T023757Z" creationid="LIIGO" creationdate="20141123T023757Z">
+        <seg>点击链接，您就可以跟Rust亲们（Rustaceans）在线交谈，并寻求帮助。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Congrats!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T023209Z" creationid="LIIGO" creationdate="20141123T023209Z">
+        <seg>恭喜。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Congratulations!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072150Z" creationid="LIIGO" creationdate="20141123T072150Z">
+        <seg>恭喜！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Consult
+the documentation for your shell for more details.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063444Z" creationid="LIIGO" creationdate="20141123T063444Z">
+        <seg>自己去查询终端相关文档吧。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Disclaimer
+below.)</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020301Z" creationid="LIIGO" creationdate="20141123T020301Z">
+        <seg>后面会解释）</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Don't be scared of using macros.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070302Z" creationid="LIIGO" creationdate="20141123T070302Z">
+        <seg>别怕使用Rust宏。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Each and every
+commit is tested against Windows just like any other platform.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022743Z" creationid="LIIGO" creationdate="20141123T022743Z">
+        <seg>每一项新功能或改动都针对 Windows 做过测试，当然也在其他主要平台做过测试。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Easy enough!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070644Z" creationid="LIIGO" creationdate="20141123T070644Z">
+        <seg>非常简单。</seg>
       </tuv>
     </tu>
     <tu>
@@ -83,12 +222,45 @@ get a different, possibly incompatible version.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Everything is a tradeoff in language design, and Rust has
+made its choice.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072135Z" creationid="LIIGO" creationdate="20141123T072135Z">
+        <seg>在语言设计层面，所有东西都需要权衡，Rust 做了它自己的选择。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Finally,
 we'll talk about how Rust breaks down the perceived dichotomy between speed
 and safety.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131931Z" creationid="LIIGO" creationdate="20141108T131931Z">
         <seg>最后，谈谈Rust怎样同时到高效和安全。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Finally, a comment about Windows.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022038Z" creationid="LIIGO" creationdate="20141123T022038Z">
+        <seg>最后，补充一点关于 Windows 的说明。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Finally, actually **compiling** and **running** our program.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071035Z" creationid="LIIGO" creationdate="20141123T071035Z">
+        <seg>最后，编译并运行我们写的代码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Finally, the line ends with a semicolon (`;`).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070731Z" creationid="LIIGO" creationdate="20141123T070731Z">
+        <seg>接下来看到，这一行，以分号 `;` 结尾。</seg>
       </tuv>
     </tu>
     <tu>
@@ -110,6 +282,15 @@ let's compile and run it:</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>For our purposes, we don't need to worry
+about this difference.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065859Z" creationid="LIIGO" creationdate="20141123T065859Z">
+        <seg>就我们目前来看，我们没必要关心它们的不同。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Getting started on a new Rust project is incredibly easy, thanks to Rust's
 package manager, [Cargo](http://crates.io).</seg>
       </tuv>
@@ -127,11 +308,172 @@ package manager, [Cargo](http://crates.io).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Hey there!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T014035Z" creationid="LIIGO" creationdate="20141123T014035Z">
+        <seg>嗨！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>I like
+to make a `projects` directory in my home directory, and keep all my projects
+there.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T024724Z" creationid="LIIGO" creationdate="20141123T024724Z">
+        <seg>我喜欢在用户主目录（Home目录）下创建一个目录`projects`，来存放我的所有工程文件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>I'm going to use the syntax `editor
+filename` to represent editing a file in these examples, but you should use
+whatever method you want.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063632Z" creationid="LIIGO" creationdate="20141123T063615Z">
+        <seg>我会使用 `editor filename` 这个语法来表示编辑一个文件，但你可以使用任何你喜欢的方法做的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If anything
+does not work, it is a bug.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022355Z" creationid="LIIGO" creationdate="20141123T022355Z">
+        <seg>如果您遇到BUG，</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If it were a function instead, it
+would look like this: `println()`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065838Z" creationid="LIIGO" creationdate="20141123T065838Z">
+        <seg>如果这里是一个函数，看起来就会是：`println()`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If not, there are a number of places where you can get help.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T023252Z" creationid="LIIGO" creationdate="20141123T023140Z">
+        <seg>如果没看到，您可以在下面这些地方寻求帮助：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you come from a dynamically typed language like Ruby, Python, or JavaScript,
+you may not be used to these two steps being separate.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071700Z" creationid="LIIGO" creationdate="20141123T071700Z">
+        <seg>如果你来自动态语言（如 Ruby, Python 或 JavaScript）社区，你可能不习惯编译和执行两部分开。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you decide you don't want Rust anymore, we'll be a bit sad, but that's okay.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020428Z" creationid="LIIGO" creationdate="20141123T020428Z">
+        <seg>如果你不想要 Rust 了，也是可以的（虽然对我们来说有点沮丧）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you did, Rust has been installed successfully!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T023244Z" creationid="LIIGO" creationdate="20141123T023028Z">
+        <seg>如果您看到了，说明Rust已经安装成功。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you give someone a `.rb` or `.py` or `.js` file, they need to have
+Ruby/Python/JavaScript installed, but you just need one command to both compile
+and run your program.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072112Z" creationid="LIIGO" creationdate="20141123T072112Z">
+        <seg>如果你给别人一个 `.rb` 、 `.py` 或 `.js` 文件，他需要事先安装 Ruby/Python/Javascript 才能运行（但也只需要一个命令即可编译运行）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you used the Windows installer, just re-run the `.exe` and it will give you
+an uninstall option.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020520Z" creationid="LIIGO" creationdate="20141123T020520Z">
+        <seg>如果你使用的是 Windows ，只需要重新运行 `.exe` 文件，它会给你一个卸载选项。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>If you'd like to anyway, check out [the
 homepage](http://rust-lang.org) for explanation.</seg>
       </tuv>
       <tuv lang="ZH" changeid="liigo" changedate="20141107T145313Z" creationid="liigo" creationdate="20141107T145313Z">
         <seg>其他内容可参考[Rust官方网站](http://rust-lang.org)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you're on
+Linux or a Mac, all you need to do is this (note that you don't need to type
+in the `$`s, they just indicate the start of each command):</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020002Z" creationid="LIIGO" creationdate="20141123T020002Z">
+        <seg>如果你使用 Linux 或 Mac，你需要做的仅仅是（注意，你不需要输入`$`符号，它标识一个命令行的开始）：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you're on Windows and not using PowerShell, the `~` may not work.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063435Z" creationid="LIIGO" creationdate="20141123T063435Z">
+        <seg>如果你使用 Windows，又没有使用 PowerShell 的话，`~` 可能不起作用。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you're on Windows, please download either the [32-bit
+installer](https://static.rust-lang.org/dist/rust-nightly-i686-w64-mingw32.exe)
+or the [64-bit
+installer](https://static.rust-lang.org/dist/rust-nightly-x86_64-w64-mingw32.exe)
+and run it.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020359Z" creationid="LIIGO" creationdate="20141123T020359Z">
+        <seg>如果你使用Windows，可以下载[32-bit
+installer](https://static.rust-lang.org/dist/rust-nightly-i686-w64-mingw32.exe)
+或 [64-bit
+installer](https://static.rust-lang.org/dist/rust-nightly-x86_64-w64-mingw32.exe)
+并运行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you're one of those people, please check out the documentation on [building
+Rust from Source](https://github.com/rust-lang/rust#building-from-source), or
+[the official binary downloads](http://www.rust-lang.org/install.html).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021459Z" creationid="LIIGO" creationdate="20141123T021459Z">
+        <seg>对于有这种疑虑的人，可以 [从源码构建
+Rust](https://github.com/rust-lang/rust#building-from-source) ，或者直接下载
+[官方二进制包](http://www.rust-lang.org/install.html) 安装。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you're using more than one word
+in your file name, use an underscore.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063926Z" creationid="LIIGO" creationdate="20141123T063926Z">
+        <seg>如果你使用多个单词为您的文件命名，可使用下划线分隔。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you've got Rust installed, you can open up a shell, and type this:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022805Z" creationid="LIIGO" creationdate="20141123T022805Z">
+        <seg>你已经装上 Rust 了，现在你可以打开一个终端，输入：</seg>
       </tuv>
     </tu>
     <tu>
@@ -155,6 +497,55 @@ before, like C or JavaScript.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>It is also considered good
+style to put the opening curly brace on the same line as the function
+declaration, with one space in between.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065215Z" creationid="LIIGO" creationdate="20141123T065215Z">
+        <seg>而且建议将 `{` 放在与函数声明同一行，`{` 前面放一个空格。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>It's
+traditional to make your first program in any new language one that prints the
+text "Hello, world!" to the screen.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T024332Z" creationid="LIIGO" creationdate="20141123T024332Z">
+        <seg>打印文字“Hello, world!”到屏幕上，是学习一门新语言的传统。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Just know that sometimes, you'll see a `!`, and that
+means that you're calling a macro instead of a normal function.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065942Z" creationid="LIIGO" creationdate="20141123T065942Z">
+        <seg>只需知道，当你看到`!`时，意味着你在使用一个宏，而不是一个函数。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Just pass an argument to
+the script:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020503Z" creationid="LIIGO" creationdate="20141123T020503Z">
+        <seg>只需要传一个参数给脚本：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Just using `rustc` is nice for simple things, but as
+your project grows, you'll want something to help you manage all of the options
+that it has, and to make it easy to share your code with other people and
+projects.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072631Z" creationid="LIIGO" creationdate="20141123T072631Z">
+        <seg>对写小程序来说，只使用 `rustc` 就够了。但当你的工程变得越来越大，你会希望有个东西能够帮助管理工程的方方面面，同时也能够将自己的代码方便地分享给他人。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Let's check out what Cargo has generated for us:</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T132759Z" creationid="LIIGO" creationdate="20141108T132759Z">
@@ -171,6 +562,98 @@ before, like C or JavaScript.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's go over what just happened in detail.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064446Z" creationid="LIIGO" creationdate="20141123T064420Z">
+        <seg>让我们仔细看看刚才做了什么。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's go!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015901Z" creationid="LIIGO" creationdate="20141123T015901Z">
+        <seg>那就开始吧！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's make a new source file next.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063525Z" creationid="LIIGO" creationdate="20141123T063525Z">
+        <seg>下面我们创建一个源文件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Most lines of Rust code end with a `;`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070942Z" creationid="LIIGO" creationdate="20141123T070942Z">
+        <seg>大多数 Rust 代码都以 `;` 结尾。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Next up is this line:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065235Z" creationid="LIIGO" creationdate="20141123T065235Z">
+        <seg>接着看下面这行：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Next, I'd like to introduce you to another tool, Cargo, which is used to write
+real-world Rust programs.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072419Z" creationid="LIIGO" creationdate="20141123T072419Z">
+        <seg>下面，我会介绍一个工具，Cargo，它用于编写真正的Rust程序。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Next, `"Hello, world!"` is a **string**.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070407Z" creationid="LIIGO" creationdate="20141123T070407Z">
+        <seg>接下来，`"Hello, world!"` 是一个 **字符串（string）**。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Next, we'll introduce you to a tool that's useful for
+writing real-world Rust programs and libraries: "Cargo." After that, we'll talk
+about the basics of Rust, write a little program to try them out, and then learn
+more advanced things.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015659Z" creationid="LIIGO" creationdate="20141123T015659Z">
+        <seg>然后，我们会介绍在实际开发中非常有用的工具：Cargo （程序和库皆适用）。然后，我们会谈到 Rust 的基础，用一个小程序来试验。然后再学习一些高级的特性。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Not every programming language is great for everyone.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020443Z" creationid="LIIGO" creationdate="20141123T020443Z">
+        <seg>不是每种编程语言都适合每一个人。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Now that you have Rust installed, let's write your first Rust program.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T024204Z" creationid="LIIGO" creationdate="20141123T024059Z">
+        <seg>已经安装好Rust，我们现在开始写第一个 Rust 程序吧。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Now that you've got your file open, type this in:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064012Z" creationid="LIIGO" creationdate="20141123T064012Z">
+        <seg>然后，打开这个文件，在里面输入：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Now, you can pull in that library using `extern crate` in
 `main.rs`.</seg>
       </tuv>
@@ -180,10 +663,246 @@ before, like C or JavaScript.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Oh, we should also mention the officially supported platforms:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021606Z" creationid="LIIGO" creationdate="20141123T021606Z">
+        <seg>目前，Rust 官方支持如下平台：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>One
+last thing to mention: Rust's macros are significantly different than C macros,
+if you've used those.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070240Z" creationid="LIIGO" creationdate="20141123T070240Z">
+        <seg>最后一件事情要注意的是： Rust 的宏与 C 语言的宏明显不同。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Or on Windows:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071403Z" creationid="LIIGO" creationdate="20141123T071403Z">
+        <seg>Windows系统下这样查看：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Other great resources include [our
+mailing list](https://mail.mozilla.org/listinfo/rust-dev), [the /r/rust
+subreddit](http://www.reddit.com/r/rust), and [Stack
+Overflow](http://stackoverflow.com/questions/tagged/rust).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T024002Z" creationid="LIIGO" creationdate="20141123T024002Z">
+        <seg>其他有用的资源还包括 [rust-dev邮件组](https://mail.mozilla.org/listinfo/rust-dev)、[Reddit的/r/rust频道](http://www.reddit.com/r/rust)，以及[Stack
+Overflow](http://stackoverflow.com/questions/tagged/rust)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Please configure your editor of choice to insert four spaces
+with the tab key.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065539Z" creationid="LIIGO" creationdate="20141123T065539Z">
+        <seg>请配置您的编辑器，按下Tab键时自动输入4个空格。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Please let us know if that happens.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022408Z" creationid="LIIGO" creationdate="20141123T022408Z">
+        <seg>请报告给我们。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust
+will output a binary executable.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071326Z" creationid="LIIGO" creationdate="20141123T071326Z">
+        <seg>Rust编译器将生成一个二进制可执行文件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust considers Windows to be a first-class
+platform upon release, but if we're honest, the Windows experience isn't as
+integrated as the Linux/OS X experience is.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022132Z" creationid="LIIGO" creationdate="20141123T022132Z">
+        <seg>我们视 Windows 为第一级发布平台，但老实说，Rust 的 Windows 体验没有做到像 Linux/OS X 那样好。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust does not
+require that you know a whole ton about the command line, but until the
+language is in a more finished state, IDE support is spotty.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063139Z" creationid="LIIGO" creationdate="20141123T063139Z">
+        <seg>Rust也不要求您懂很多命令行操作，但是在语言还没有正式发布之前，IDE支持度有限。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust does not care where your code lives.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T062737Z" creationid="LIIGO" creationdate="20141123T062737Z">
+        <seg>Rust并不介意您把代码放在哪里。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust files always end in a `.rs` extension.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063736Z" creationid="LIIGO" creationdate="20141123T063736Z">
+        <seg>Rust 源文件扩展名固定是 `.rs`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust implements
+`println!` as a macro rather than a function for good reasons, but that's a
+very advanced topic.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070108Z" creationid="LIIGO" creationdate="20141123T070108Z">
+        <seg>Rust 将`println!`实现成一个宏（而不是一个函数），是有一些原因的，但涉比较高级的话题。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Rust is a modern systems programming language focusing on safety and speed.</seg>
       </tuv>
       <tuv lang="ZH" changeid="liigo" changedate="20141107T145001Z" creationid="liigo" creationdate="20141107T145001Z">
         <seg>Rust是一个先进的系统级编程语言，专注于安全和速度。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust is a systems programming language with a
+focus on "high-level, bare-metal programming": the lowest level control a
+programming language can give you, but with zero-cost, higher level
+abstractions, because people aren't computers.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T014840Z" creationid="LIIGO" creationdate="20141123T014840Z">
+        <seg>Rust 是一个关注于“高阶-裸机”的系统级编程语言——将对机器的低阶控制与对世界的高阶抽象结合在一起（人不是计算机，高级语言的作用即充当人与机器之间的翻译）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust is an
+**ahead-of-time compiled language**, which means that you can compile a
+program, give it to someone else, and they don't need to have Rust installed.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071826Z" creationid="LIIGO" creationdate="20141123T071826Z">
+        <seg>Rust 是一个编译型语言，意味着你可以编译生成一个可执行程序，把它分发给其他人，他们不需要安装 Rust就能运行。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust is an **expression
+oriented** language, which means that most things are expressions.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070825Z" creationid="LIIGO" creationdate="20141123T070825Z">
+        <seg>Rust 是一个 **面向表达式** 的语言，这意味着 Rust 中大多数东西都是表达式。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust is still pre-1.0, and so people assume that you're using
+a very recent Rust.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020726Z" creationid="LIIGO" creationdate="20141123T020726Z">
+        <seg>Rust 还没有发布 1.0 正式版，大家讨论问题一般都是基于最新版，所以你最好也升级到最新版。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust makes no
+specific demands on your editing tooling, or where your code lives.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063300Z" creationid="LIIGO" creationdate="20141123T063300Z">
+        <seg>Rust对您的编辑器和代码存在哪个目录没有特殊要求。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Rust requires these around all function bodies.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065130Z" creationid="LIIGO" creationdate="20141123T065130Z">
+        <seg>Rust 要求如此。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Save the file, and then type this into your terminal window:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064045Z" creationid="LIIGO" creationdate="20141123T064045Z">
+        <seg>保存文件，并在终端里面输入：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Sound good?</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015858Z" creationid="LIIGO" creationdate="20141123T015858Z">
+        <seg>听起来很有趣？</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Strings are a surprisingly complicated
+topic in a systems programming language, and this is a **statically allocated**
+string.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070526Z" creationid="LIIGO" creationdate="20141123T070526Z">
+        <seg>字符串在系统级编程语言中是相当复杂的话题，这里的字符串是 **静态分配（statically allocated）** 的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Success!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064324Z" creationid="LIIGO" creationdate="20141123T064324Z">
+        <seg>成功！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That makes you a
+Rust programmer!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072242Z" creationid="LIIGO" creationdate="20141123T072242Z">
+        <seg>你已经变成一个 Rust 程序员咯！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That's a good instinct!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021436Z" creationid="LIIGO" creationdate="20141123T021436Z">
+        <seg>这是一种本能的自我保护。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The `;` is
+used to indicate that this expression is over, and the next one is ready to
+begin.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070927Z" creationid="LIIGO" creationdate="20141123T070927Z">
+        <seg>分号 `;` 用于标识当前表达式结束，新的表达式准备开始。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The `main` function is special:
+it's the beginning of every Rust program.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064657Z" creationid="LIIGO" creationdate="20141123T064657Z">
+        <seg>这个`main`函数比较特殊：它是每个 Rust 程序的开始（入口函数）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -198,11 +917,105 @@ Guide](guide.html) to get a more complete explanation.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The easiest is
+[the #rust IRC channel on irc.mozilla.org](irc://irc.mozilla.org/#rust), which
+you can access through
+[Mibbit](http://chat.mibbit.com/?server=irc.mozilla.org&amp;channel=%23rust).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T023610Z" creationid="LIIGO" creationdate="20141123T023610Z">
+        <seg>最简单的是
+[the #rust IRC channel on irc.mozilla.org](irc://irc.mozilla.org/#rust)，通过[Mibbit](http://chat.mibbit.com/?server=irc.mozilla.org&amp;channel=%23rust)；</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first is that it's indented with four
+spaces, not tabs.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065433Z" creationid="LIIGO" creationdate="20141123T065433Z">
+        <seg>第一点是这一行用4个空格缩进，而不是一个Tab。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first line says "I'm declaring a
+function named `main`, which takes no arguments and returns nothing." If there
+were arguments, they would go inside the parentheses (`(` and `)`), and because
+we aren't returning anything from this function, we've dropped that notation
+entirely.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065000Z" creationid="LIIGO" creationdate="20141123T064825Z">
+        <seg>第一行意思是“我声明了一个函数，名叫`main`，它没有参数，也不返回任何值”。 如果存在参数，就放在小括号 `(` 和 `)` 之间。在这个例子中，我们不准备返回什么东西，所以先不讲。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first step to using Rust is to install it!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015926Z" creationid="LIIGO" creationdate="20141123T015926Z">
+        <seg>使用 Rust 的第一步当然是安装！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The first thing that we need to do is make a file to put our code in.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T024622Z" creationid="LIIGO" creationdate="20141123T024622Z">
+        <seg>首先我们得建一个文件来放我们的代码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The nice thing about starting with such a
+simple program is that you can verify that your compiler isn't just installed,
+but also working properly.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T024529Z" creationid="LIIGO" creationdate="20141123T024529Z">
+        <seg>其作用在于让你确信编译器工作正常，而不仅仅是安装好了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The second point is the `println!()` part.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065624Z" creationid="LIIGO" creationdate="20141123T065624Z">
+        <seg>第二点是`println!()`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Then, we'll talk about Rust's most interesting feature, **ownership**, and
 then discuss how it makes concurrency easier to reason about.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131415Z" creationid="LIIGO" creationdate="20141108T131415Z">
         <seg>然后讲Rust最有趣的特性，**所有权（ownership）**，然后讲怎样方便的使用并发（concurrency）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There are a number of
+details that are important here.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065352Z" creationid="LIIGO" creationdate="20141123T065352Z">
+        <seg>这里有好几个需要重点注意的地方。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There are a number of ways to
+install Rust, but the easiest is to use the `rustup` script.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015948Z" creationid="LIIGO" creationdate="20141123T015948Z">
+        <seg>有很多种方式可以安装 Rust，最简单的是使用`rustup`脚本。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>There are now two files: our source code, with the `.rs` extension, and the
+executable (`main.exe` on Windows, `main` everywhere else)</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071513Z" creationid="LIIGO" creationdate="20141123T071513Z">
+        <seg>有两个文件：以 `.rs` 扩展名结尾的源代码文件；可执行文件 （在 Windows 中是 `main.exe`，在其它平台中是 `main`）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -222,6 +1035,32 @@ right at home if you've used tools like [Bundler](http://bundler.io/),
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T141415Z" creationid="LIIGO" creationdate="20141108T140707Z">
         <seg>这里没有`Makefile`和`autotools`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>These lines define a **function** in Rust.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064553Z" creationid="LIIGO" creationdate="20141123T064553Z">
+        <seg>这几句Rust代码定义了一个 **函数（function）**。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This actually leads to one other concern we should address: this guide will
+assume that you have basic familiarity with the command line.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T062939Z" creationid="LIIGO" creationdate="20141123T062923Z">
+        <seg>本教程假设你熟悉一些基本的命令行操作。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This brings me to one other point: some people, and somewhat rightfully so, get
+very upset when we tell you to `curl | sudo sh`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021247Z" creationid="LIIGO" creationdate="20141123T021152Z">
+        <seg>有些朋友听说安装 Rust 需要使用 `curl | sudo sh`，会有抵触情绪。</seg>
       </tuv>
     </tu>
     <tu>
@@ -260,10 +1099,61 @@ needs to compile your project.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This is calling a Rust **macro**,
+which is how metaprogramming is done in Rust.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065750Z" creationid="LIIGO" creationdate="20141123T065750Z">
+        <seg>它是一个 Rust **宏（Macro）**，用于支持Rust元编程（Metaprogramming）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is similar to `gcc` or `clang`, if you come from a C or C++ background.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071239Z" creationid="LIIGO" creationdate="20141123T071239Z">
+        <seg>如果你有 C 或 C++ 背景，你会发现这个类似 `gcc` 或 `clang`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This is the place to be if you'd like to
+learn how to program in Rust.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T014813Z" creationid="LIIGO" creationdate="20141123T014813Z">
+        <seg>如果你想学习如何使用 Rust 编程，那算是来对地方了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This line does all of the work in our little program.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065256Z" creationid="LIIGO" creationdate="20141123T065256Z">
+        <seg>这一行是程序主体部分。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This prints out our `Hello, world!` text to our terminal.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071626Z" creationid="LIIGO" creationdate="20141123T071626Z">
+        <seg>运行这个可执行文件，就打印出 `Hello, world!` 到终端里面来了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To show off Rust, let's talk about how easy it is to get started with Rust.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131054Z" creationid="LIIGO" creationdate="20141108T130849Z">
         <seg>我们先讲，开始使用Rust是很容易的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>To show you how to get going with Rust, we're going to write the traditional
+"Hello, World!" program.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015626Z" creationid="LIIGO" creationdate="20141123T015626Z">
+        <seg>为了展示如何开始使用 Rust，我们还是用最经典的 "Hello, World!" 做例子。</seg>
       </tuv>
     </tu>
     <tu>
@@ -293,6 +1183,94 @@ produces a file, `Cargo.lock`, which records the versions of any dependencies.</
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We can compile
+with our compiler, `rustc`, by passing it the name of our source file:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071215Z" creationid="LIIGO" creationdate="20141123T071215Z">
+        <seg>按如下方式编译，把源代码文件名当作参数传递给编译器`rustc`：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We extensively test Rust on these platforms, and a few others, too, like
+Android.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022015Z" creationid="LIIGO" creationdate="20141123T021702Z">
+        <seg>我们在上述平台上充分测试过 Rust。在其他少数平台也做过一些测试，比如Android。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We pass
+this string as an argument to `println!`, which prints the string to the
+screen.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070654Z" creationid="LIIGO" creationdate="20141123T070616Z">
+        <seg>我们把这个字符串作为参数传递给 `println!`，它把这个串打印到屏幕上。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We provide some [sample configurations for various
+editors](https://github.com/rust-lang/rust/tree/master/src/etc).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065611Z" creationid="LIIGO" creationdate="20141123T065611Z">
+        <seg>我们提供了一些配置示例：[各种编辑器的配置](https://github.com/rust-lang/rust/tree/master/src/etc)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We really think Rust is
+something special, and we hope you do too.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T014854Z" creationid="LIIGO" creationdate="20141123T014854Z">
+        <seg>我们认为 Rust 真的很特别，在看完本教程之后，希望你也如此。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We will cover this in-depth
+later in the guide.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070951Z" creationid="LIIGO" creationdate="20141123T070951Z">
+        <seg>后面我们还会深入了解。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We will talk more about different kinds of allocation later.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070545Z" creationid="LIIGO" creationdate="20141123T070545Z">
+        <seg>后面我们还会谈到不同种类的内存分配。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We'll call our file `main.rs`:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063634Z" creationid="LIIGO" creationdate="20141123T063634Z">
+        <seg>我们创建的文件叫 `main.rs`：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We'll get to it later.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065010Z" creationid="LIIGO" creationdate="20141123T065010Z">
+        <seg>后面再讲关于返回值的内容。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We'll get to the details
+eventually, you'll just have to trust us for now.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070348Z" creationid="LIIGO" creationdate="20141123T070348Z">
+        <seg>后面我们会深入了解的，现在你只要相信我们说的就行了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>We'll talk more about the syntax here
 later, but that's what Rust code looks like!</seg>
       </tuv>
@@ -311,6 +1289,47 @@ were making a library, we'd leave it off.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We're working on it!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022216Z" creationid="LIIGO" creationdate="20141123T022216Z">
+        <seg>我们还在努力改进。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Welcome to the Rust guide.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T014046Z" creationid="LIIGO" creationdate="20141123T014046Z">
+        <seg>欢迎阅读本 Rust 入门教程。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Welcome.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072259Z" creationid="LIIGO" creationdate="20141123T072250Z">
+        <seg>欢迎！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Which, at this
+point, is often.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020648Z" creationid="LIIGO" creationdate="20141123T020648Z">
+        <seg>在现阶段可能会比较频繁的升级。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>With that said, let's make a directory in our projects directory.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063406Z" creationid="LIIGO" creationdate="20141123T063406Z">
+        <seg>闲话说完了，我们就先创建一个工程目录。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You add a line to
 your `Cargo.toml`:</seg>
       </tuv>
@@ -325,6 +1344,71 @@ according to the [SemVer specification](http://semver.org/).</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T134439Z" creationid="LIIGO" creationdate="20141108T134439Z">
         <seg>这里添加的依赖项，是`semver`库，用于解析和比较版本号，详见 [SemVer规范](http://semver.org/)。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can also run these examples on [play.rust-lang.org](http://play.rust-lang.org/) by clicking on the arrow that appears in the upper right of the example when you mouse over the code.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064318Z" creationid="LIIGO" creationdate="20141123T064318Z">
+        <seg>你也可以在[play.rust-lang.org](http://play.rust-lang.org/)里面运行以上代码，只需把鼠标移到代码块上点击右上角的箭头链接。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can re-run this script any time you want to update Rust.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020610Z" creationid="LIIGO" creationdate="20141123T020610Z">
+        <seg>在任何时候，你都可以重新执行这个脚本来升级 Rust。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You can see it with `ls`:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T071331Z" creationid="LIIGO" creationdate="20141123T071331Z">
+        <seg>你可以输入 `ls` 查看：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You have officially written a Rust program.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072219Z" creationid="LIIGO" creationdate="20141123T072219Z">
+        <seg>你已经正式写完了一个 Rust 程序。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You should see some output that looks something like this:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T023107Z" creationid="LIIGO" creationdate="20141123T022929Z">
+        <seg>您会看到类似如下的输出：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You'll also note that the function is wrapped in curly braces (`{` and `}`).</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065034Z" creationid="LIIGO" creationdate="20141123T065034Z">
+        <seg>你可能还注意到了，函数体是由花括号 `{` 和 `}` 包起来的。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>You'll learn more when we talk about macros later.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070152Z" creationid="LIIGO" creationdate="20141123T070152Z">
+        <seg>等后面讲到宏时再说。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>`hello_world.rs` rather than
+`helloworld.rs`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063957Z" creationid="LIIGO" creationdate="20141123T063957Z">
+        <seg>`hello_world.rs`而不是`helloworld.rs`。</seg>
       </tuv>
     </tu>
 <!-- Alternative translations -->
