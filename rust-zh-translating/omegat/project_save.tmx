@@ -6,6 +6,14 @@
 <!-- Default translations -->
     <tu>
       <tuv lang="EN-US">
+        <seg># Hello, Cargo!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T100548Z" creationid="LIIGO" creationdate="20141130T100548Z">
+        <seg># 你好，Cargo！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg># Installing Rust</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015915Z" creationid="LIIGO" creationdate="20141123T015915Z">
@@ -64,6 +72,33 @@ tools](http://crates.io/native-build.html), if you need to.)</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>&gt; TOML aims to be a minimal configuration file format that's easy to read due
+&gt; to obvious semantics.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103013Z" creationid="LIIGO" creationdate="20141130T102949Z">
+        <seg>&gt; TOML 的目标是成为一个语义直观、易于阅读的最小化配置文件格式。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>&gt; TOML should be easy to parse into data structures in a wide variety of
+&gt; languages.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103128Z" creationid="LIIGO" creationdate="20141130T103119Z">
+        <seg>&gt; TOML应当很容易被各种语言解析成为它们自己的数据结构。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>A
+place for everything, and everything in its place.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102549Z" creationid="LIIGO" creationdate="20141130T102351Z">
+        <seg>所有文件都在项目根目录内，分门别类存放在不同的位置。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Again, we'll discuss the exact details of all of this syntax soon.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T135026Z" creationid="LIIGO" creationdate="20141108T135026Z">
@@ -95,6 +130,32 @@ the easiest way to keep people updated while Rust is in its alpha state.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021551Z" creationid="LIIGO" creationdate="20141123T021551Z">
         <seg>我们承诺这种脚本安装方式不会永远持续下去：它仅仅是目前Alpha 阶段最简单的升级方式而已。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Anyway, there are two **table**s in this file: `package` and `bin`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103340Z" creationid="LIIGO" creationdate="20141130T103340Z">
+        <seg>好吧，上面编辑的Cargo.toml文件里有两个表（table）：`package` 和 `bin`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>At first, your
+program doesn't have any dependencies, so we'll only be using the first part of
+its functionality.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T100933Z" creationid="LIIGO" creationdate="20141130T100933Z">
+        <seg>最开始的时候，你的程序可能不需要什么依赖，所以我们暂时只用到第一个功能。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Bam!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103745Z" creationid="LIIGO" creationdate="20141130T103745Z">
+        <seg>耶！</seg>
       </tuv>
     </tu>
     <tu>
@@ -137,10 +198,44 @@ testing.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Cargo expects your source files to live inside a `src` directory.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102103Z" creationid="LIIGO" creationdate="20141130T102103Z">
+        <seg>Cargo 期望源文件放在 `src` 目录下。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Cargo generated a 'hello world' for us.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133526Z" creationid="LIIGO" creationdate="20141108T133526Z">
         <seg>Cargo自动生成了这句输出“hello world”的代码。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Cargo helps us keep our projects nice and tidy.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102358Z" creationid="LIIGO" creationdate="20141130T102242Z">
+        <seg>Cargo帮助我们保持项目结构整洁美观。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Cargo is currently in an alpha state, just like Rust, and so it
+is still a work in progress.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T100720Z" creationid="LIIGO" creationdate="20141130T100720Z">
+        <seg>跟 Rust 一样，Cargo 目前处于 alpha 阶段，也就是正在进行中的项目。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Cargo manages three things: building your code, downloading the dependencies
+your code needs, and building the dependencies your code needs.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T100851Z" creationid="LIIGO" creationdate="20141130T100851Z">
+        <seg>Cargo 管理三件事情：构建代码、下载依赖、构建依赖。</seg>
       </tuv>
     </tu>
     <tu>
@@ -218,6 +313,24 @@ commit is tested against Windows just like any other platform.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T141541Z" creationid="LIIGO" creationdate="20141108T141541Z">
         <seg>有关工具方面内容，告一段落，下面讲代码！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Even though our
+program is simple, it's using much of the real tooling that you'll use for the
+rest of your Rust career.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T111846Z" creationid="LIIGO" creationdate="20141130T111746Z">
+        <seg>这个程序很简单，但用上Cargo这样真实可用的构建工具，为我们以后的 Rust 生涯打好基础。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Eventually, we'll add more.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101301Z" creationid="LIIGO" creationdate="20141130T101007Z">
+        <seg>往后程序会引入其他依赖。</seg>
       </tuv>
     </tu>
     <tu>
@@ -316,6 +429,16 @@ package manager, [Cargo](http://crates.io).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>However, it is already good enough to use for many
+Rust projects, and so it is assumed that Rust projects will use Cargo from the
+beginning.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T100742Z" creationid="LIIGO" creationdate="20141130T100742Z">
+        <seg>然而，对很多 Rust 项目来说，它已经足够好了，所以我们从一开始就使用 Cargo 来管理我们的项目。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>I like
 to make a `projects` directory in my home directory, and keep all my projects
 there.</seg>
@@ -393,6 +516,17 @@ and run your program.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T072112Z" creationid="LIIGO" creationdate="20141123T072112Z">
         <seg>如果你给别人一个 `.rb` 、 `.py` 或 `.js` 文件，他需要事先安装 Ruby/Python/Javascript 才能运行（但也只需要一个命令即可编译运行）。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>If you installed Rust some other way, you may
+want to [check the Cargo
+README](https://github.com/rust-lang/cargo#installing-cargo-from-nightlies)
+for specific instructions about installing it.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101658Z" creationid="LIIGO" creationdate="20141130T101658Z">
+        <seg>如果你是用其它方式安装的 Rust，可以按照 [安装Cargo每日构建版](https://github.com/rust-lang/cargo#installing-cargo-from-nightlies) 中的说明进行安装。</seg>
       </tuv>
     </tu>
     <tu>
@@ -546,6 +680,15 @@ projects.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's
+do that part first:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101959Z" creationid="LIIGO" creationdate="20141130T101959Z">
+        <seg>先做第二件事：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Let's check out what Cargo has generated for us:</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T132759Z" creationid="LIIGO" creationdate="20141108T132759Z">
@@ -558,6 +701,14 @@ projects.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133740Z" creationid="LIIGO" creationdate="20141108T133740Z">
         <seg>让我们编译并运行它：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Let's convert Hello World to Cargo.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101434Z" creationid="LIIGO" creationdate="20141130T101434Z">
+        <seg>现在我们把刚才的 Hello World 转换到Cargo。</seg>
       </tuv>
     </tu>
     <tu>
@@ -578,10 +729,36 @@ projects.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Let's let
+it explain itself to you:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102903Z" creationid="LIIGO" creationdate="20141130T102825Z">
+        <seg>对TOML的简要说明如下：：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Let's make a new source file next.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T063525Z" creationid="LIIGO" creationdate="20141123T063525Z">
         <seg>下面我们创建一个源文件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Luckily for us, the script we ran to install
+Rust includes Cargo by default.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101502Z" creationid="LIIGO" creationdate="20141130T101502Z">
+        <seg>幸运的是，用前面脚本安装的 Rust 里面已经默认包含 Cargo 了。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Make sure to get this name right: you need the capital `C`!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102635Z" creationid="LIIGO" creationdate="20141130T102635Z">
+        <seg>请确保文件名正确：第一个字母 `C` 要大写。</seg>
       </tuv>
     </tu>
     <tu>
@@ -619,6 +796,14 @@ real-world Rust programs.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Next, our configuration file:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102604Z" creationid="LIIGO" creationdate="20141130T102604Z">
+        <seg>下一步编辑配置文件：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Next, we'll introduce you to a tool that's useful for
 writing real-world Rust programs and libraries: "Cargo." After that, we'll talk
 about the basics of Rust, write a little program to try them out, and then learn
@@ -646,6 +831,15 @@ more advanced things.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Now that you've got the tools down, let's actually learn more about the Rust
+language itself.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T111831Z" creationid="LIIGO" creationdate="20141130T111831Z">
+        <seg>既然你会使用这个工具了，那么就让我们开始学习更多 Rust 语言的内容。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Now that you've got your file open, type this in:</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064012Z" creationid="LIIGO" creationdate="20141123T064012Z">
@@ -667,6 +861,14 @@ more advanced things.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021606Z" creationid="LIIGO" creationdate="20141123T021606Z">
         <seg>目前，Rust 官方支持如下平台：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Once you have this file in place, we should be ready to build!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103656Z" creationid="LIIGO" creationdate="20141130T103656Z">
+        <seg>准备好这个文件，我们可以开始构建了！</seg>
       </tuv>
     </tu>
     <tu>
@@ -714,6 +916,22 @@ with the tab key.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T022408Z" creationid="LIIGO" creationdate="20141123T022408Z">
         <seg>请报告给我们。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Put this inside:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102703Z" creationid="LIIGO" creationdate="20141130T102703Z">
+        <seg>加入如下内容：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>Right now, we don't have any, so it's a bit sparse.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T104424Z" creationid="LIIGO" creationdate="20141130T104424Z">
+        <seg>目前，我们并没有什么依赖，所以内容很少。</seg>
       </tuv>
     </tu>
     <tu>
@@ -845,6 +1063,15 @@ specific demands on your editing tooling, or where your code lives.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Since we started off by using
+Cargo, it'll be easy to add later.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101311Z" creationid="LIIGO" creationdate="20141130T101143Z">
+        <seg>因为我们一开始就使用 Cargo，后面添加新的依赖也非常容易。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Sound good?</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T015858Z" creationid="LIIGO" creationdate="20141123T015858Z">
@@ -871,6 +1098,32 @@ string.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>TOML is designed to map unambiguously to a hash table.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103030Z" creationid="LIIGO" creationdate="20141130T102955Z">
+        <seg>它被设计为能够明确无歧义地映射到哈希表结构。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>TOML is very similar to INI, but with some extra goodies.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103230Z" creationid="LIIGO" creationdate="20141130T103230Z">
+        <seg>TOML非常像 INI 格式，但多了一些好处。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That leaves
+the top level for other things, like READMEs, license information, and anything
+not related to your code.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102205Z" creationid="LIIGO" creationdate="20141130T102205Z">
+        <seg>留出上层目录放给其它文件，比如README、版权信息等与源代码无关的文件。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>That makes you a
 Rust programmer!</seg>
       </tuv>
@@ -884,6 +1137,14 @@ Rust programmer!</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T021436Z" creationid="LIIGO" creationdate="20141123T021436Z">
         <seg>这是一种本能的自我保护。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>That's it!</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T104500Z" creationid="LIIGO" creationdate="20141130T104500Z">
+        <seg>好了。</seg>
       </tuv>
     </tu>
     <tu>
@@ -929,6 +1190,15 @@ you can access through
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The first
+tells Cargo metadata about your package.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103555Z" creationid="LIIGO" creationdate="20141130T103441Z">
+        <seg>第一个告诉 Cargo 这个包（package）的元信息。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The first is that it's indented with four
 spaces, not tabs.</seg>
       </tuv>
@@ -966,6 +1236,15 @@ entirely.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>The first thing we need to do to begin
+using Cargo is to install Cargo.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101445Z" creationid="LIIGO" creationdate="20141130T101445Z">
+        <seg>第一件事情就是安装 Cargo。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>The nice thing about starting with such a
 simple program is that you can verify that your compiler isn't just installed,
 but also working properly.</seg>
@@ -980,6 +1259,16 @@ but also working properly.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065624Z" creationid="LIIGO" creationdate="20141123T065624Z">
         <seg>第二点是`println!()`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>The second tells Cargo that we're
+interested in building a binary, not a library (though we could do both!), as
+well as what it is named.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103531Z" creationid="LIIGO" creationdate="20141130T103531Z">
+        <seg>第二个告诉 Cargo 我们要构建一个可执行文件，而不是一个库（其实我们都可以做到）。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1039,6 +1328,15 @@ right at home if you've used tools like [Bundler](http://bundler.io/),
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>These are the basics that will serve you well through the rest
+of your time with Rust.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T112144Z" creationid="LIIGO" creationdate="20141130T112136Z">
+        <seg>这些基础知识将有助于你今后学习和应用Rust语言。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>These lines define a **function** in Rust.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T064553Z" creationid="LIIGO" creationdate="20141123T064553Z">
@@ -1065,10 +1363,37 @@ very upset when we tell you to `curl | sudo sh`.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>This file is in the [TOML](https://github.com/toml-lang/toml) format.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T102744Z" creationid="LIIGO" creationdate="20141130T102744Z">
+        <seg>这个文件用的是 [TOML](https://github.com/toml-lang/toml) 格式。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This file is used by Cargo to keep track of dependencies in your application.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T104350Z" creationid="LIIGO" creationdate="20141130T104350Z">
+        <seg>这个文件被 Cargo 用来跟踪依赖关系。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>This gives us repeatable builds.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T140042Z" creationid="LIIGO" creationdate="20141108T140042Z">
         <seg>以后编译时都固定采用此版本号，不受它们升级的影响。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>This hasn't bought us a whole lot over our simple use
+of `rustc`, but think about the future: when our project has more than one
+file, we would need to call `rustc` twice, and pass it a bunch of options to
+tell it to build everything together.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T104023Z" creationid="LIIGO" creationdate="20141130T104023Z">
+        <seg>对这个例子而言，相比使用 `rustc`，并没有给我们带来额外的好处，但我们要为未来考虑：当项目有多个文件的时候，需要运行 `rustc` 两次，并给它传一堆参数，告诉它把所有东西构建到一起。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1141,6 +1466,15 @@ learn how to program in Rust.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>To Cargo-ify our project, we need to do two things: Make a `Cargo.toml`
+configuration file, and put our source file in the right place.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T101840Z" creationid="LIIGO" creationdate="20141130T101840Z">
+        <seg>为了把现有的项目Cargo化，需要做两件事：创建 `Cargo.toml` 配置文件，然后把源代码文件放到合适的位置。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>To show off Rust, let's talk about how easy it is to get started with Rust.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T131054Z" creationid="LIIGO" creationdate="20141108T130849Z">
@@ -1175,10 +1509,27 @@ produces a file, `Cargo.lock`, which records the versions of any dependencies.</
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>Try this:</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103722Z" creationid="LIIGO" creationdate="20141130T103722Z">
+        <seg>尝试执行以下命令：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Using an external dependency in Rust is incredibly easy.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141108T133914Z" creationid="LIIGO" creationdate="20141108T133914Z">
         <seg>引用外部依赖项对Cargo来说是小菜一碟。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>We build our project with `cargo build`, and run it with
+`./target/hello_world`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T103826Z" creationid="LIIGO" creationdate="20141130T103826Z">
+        <seg>我们使用 `cargo build` 构建项目，用 `./target/hello_world` 来执行它。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1297,6 +1648,14 @@ were making a library, we'd leave it off.</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>We've successfully built `hello_world` with Cargo.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T111138Z" creationid="LIIGO" creationdate="20141130T111138Z">
+        <seg>好了！我们已经成功地使用 Carge 构建了 `hello_world`。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>Welcome to the Rust guide.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T014046Z" creationid="LIIGO" creationdate="20141123T014046Z">
@@ -1318,6 +1677,15 @@ point, is often.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T020648Z" creationid="LIIGO" creationdate="20141123T020648Z">
         <seg>在现阶段可能会比较频繁的升级。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>With Cargo, as our project grows, we can
+just `cargo build` and it'll work the right way.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T104056Z" creationid="LIIGO" creationdate="20141130T104056Z">
+        <seg>而使用 Cargo，随着项目增长，我们仍然只需要敲 `cargo build` 就可以了，它会工作得很好。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1388,6 +1756,15 @@ according to the [SemVer specification](http://semver.org/).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You won't ever need
+to touch this file yourself, just let Cargo handle it.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T104450Z" creationid="LIIGO" creationdate="20141130T104450Z">
+        <seg>不要自己去创建这个文件，留给 Cargo 去处理。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You'll also note that the function is wrapped in curly braces (`{` and `}`).</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T065034Z" creationid="LIIGO" creationdate="20141123T065034Z">
@@ -1396,10 +1773,27 @@ according to the [SemVer specification](http://semver.org/).</seg>
     </tu>
     <tu>
       <tuv lang="EN-US">
+        <seg>You'll also notice that Cargo has created a new file: `Cargo.lock`.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T104210Z" creationid="LIIGO" creationdate="20141130T104210Z">
+        <seg>你会注意到 Cargo 生成了一个新文件，`Cargo.lock`：</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
         <seg>You'll learn more when we talk about macros later.</seg>
       </tuv>
       <tuv lang="ZH" changeid="LIIGO" changedate="20141123T070152Z" creationid="LIIGO" creationdate="20141123T070152Z">
         <seg>等后面讲到宏时再说。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN-US">
+        <seg>[Cargo](http://crates.io) is a tool that Rustaceans use to help manage their
+Rust projects.</seg>
+      </tuv>
+      <tuv lang="ZH" changeid="LIIGO" changedate="20141130T100642Z" creationid="LIIGO" creationdate="20141130T100642Z">
+        <seg>[Cargo](http://crates.io) 是用来辅助管理 Rust 项目的工具。</seg>
       </tuv>
     </tu>
     <tu>
