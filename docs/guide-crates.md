@@ -8,10 +8,26 @@ Rust有两个不同的模块组织方式：`Crate`和`Module`。一个`Crate`相
 
 每个`Crate`都有一个隐含的根模块文件，其它的模块就引用在这个根模块文件下，这其中关键的手段就是采用`Module`。
 
-下面讲一个例子，我们将生成一个名为"phrases"的`Crate`，这个`Crate`包含了不同语言的短语，为了使例子简单，仅区分了英语和日语的"greetings"和"farewells"。该例子的模块设计如下：
-
-**(缺少绘图，请Rust中文社区人员大力贡献)**
-
+下面讲一个例子，我们将生成一个名为"phrases"的`Crate`，这个`Crate`包含了不同语言的短语，为了使例子简单，仅区分了英语和中文的"greetings"和"farewells"。该例子的模块设计如下：
+```
+                             +-----------+
+                            +---| greetings |
+                            |   +-----------+
+              +---------+   |
+              | english |---+
+              +---------+   |   +-----------+
+              |             +---| farewells |
++---------+   |                 +-----------+
+| phrases |---+ 
++---------+   |                  +-----------+
+              |              +---| greetings |
+              +----------+   |   +-----------+
+              |  chinese |---+
+              +----------+   |
+                             |   +-----------+
+                             +---| farewells |
+                                 +-----------+
+```
 在这个例子中，"phrases"是这个`Crate`的名子，其它的就作为`Module`，从图中可以看出，这个`Crate`的组织方式就像一个树型结构，"phrases"是这个`Crate`的根，"english"和"chinese"两个`Module`是这个`Crate`的分枝。
 
 下面用代码来实现这个`Crate`：
@@ -75,7 +91,7 @@ mod english;
 
 这样就可以引用`english`模块。
 
-其项目标文件构成如下(注：在`src/english/`的下级文件中并没有写入代码)：
+其项目目标文件构成如下(注：在`src/english/`的下级文件中并没有写入代码)：
 
 ```
 $ tree
@@ -117,7 +133,7 @@ mod farewells;
 
 同样，这个声明将告诉Rust自动寻找`src/english/greetings.rs`、`src/chinese/greetings.rs`或者`src/english/farewells/mod/rs`、`src/chinese/farewells/mod.rs`。
 
-目前，`src/english`和`src/chinese`下面所有文件都是空的，我们将在相应的文件中定义一些函数。
+截止目前，`src/english`和`src/chinese`下所有文件都是空的。下面，我们将在相应的文件中定义一些函数。
 
 在`src/english/greetings.rs`输入如下：
 
@@ -131,11 +147,11 @@ fn hello() -> String {
 
 ```
 fn goodbye() -> String {
-    "goodbye.".to_string()
+    "goodbye!".to_string()
 }
 ```
 
-在`src/japanse/greetings.rs`输入如下：
+在`src/chinese/greetings.rs`输入如下：
 
 ```
 fn hello() -> String {
@@ -150,7 +166,7 @@ fn goodbye() -> String {
     "再见".to_string()
 }
 ```
-下面，让我们来进行模块之间的相互调用(仅定了函数，而没有使用，在`cargo build`的时候，Rust会自动报错误)。
+下面，让我们来进行模块之间的相互调用(仅定了函数，而没有引用，在运行`cargo build`的时候，Rust会自动报错误)。
 
 ## 引入Crates定义的库
 
@@ -171,7 +187,7 @@ fn main() {
 
 `extern crate`声明编译时将链接"phrases"这个`Crate`，这样才能通过`::`逐级引用"phrases"里面定义的函数。
 
-同时，`Cargo`也认为`src/main.rs`也是一个`Crate`的根，一旦编译`src/main.rs`成功将获得一个可执行文件。目前，我们的项目包含了`src/lib.rs`和`src/main.rs`这两个`Crate`，这种组织方式对于生成可执行的`Crate`非常普遍：很多时候将函数定义在库`Crate`中，生成可执行的`Crate`调用这个库。
+同时，`Cargo`也认为`src/main.rs`也是一个`Crate`的根，一旦编译`src/main.rs`成功将获得一个可执行文件。目前，我们的项目包含了`src/lib.rs`和`src/main.rs`这两个`Crate`，这种组织方式对于生成可执行的`Crate`非常普遍，很多时候将函数定义在库`Crate`中，生成可执行的`Crate`调用这个库。
 
 下面我们来编译这个项目，但会报错如下：
 
@@ -260,11 +276,11 @@ pub fn hello() -> String {
 
 ```
 pub fn goodbye() -> String {
-    "goodbye.".to_string()
+    "goodbye!".to_string()
 }
 ```
 
-`src/japanse/greetings.rs`代码修改如下：
+`src/chinese/greetings.rs`代码修改如下：
 
 ```
 pub fn hello() -> String {
@@ -282,7 +298,7 @@ pub fn goodbye() -> String {
 
 运行`cargo build`将会执行成功。
 
-前面，在`src/main.rs`引用下级模块的函数时，输入了`phrases::english::greetings::hello()`这个太长，并重复输入了4次，不简洁。Rust提供了另一个关键字`use`来定义当前o可见泛围。
+前面，在`src/main.rs`引用下级模块的函数时，输入了`phrases::english::greetings::hello()`这个太长，并重复输入了4次，不简洁。Rust提供了另一个关键字`use`来定义当前可见泛围。
 
 ## 使用use引入Modules
 
@@ -300,7 +316,7 @@ fn main() {
 }
 ```
 
-带有`use`关键字的两行代码，将`greetings`和`farewells`这两个模块的可见泛围提到了当前，所以，我们可以直接使用这个两个模块下面定义的函数。最佳实路就是这样，直接引入下级模块，而不是直接引入函数。
+带有`use`关键字的两行代码，将`greetings`和`farewells`这两个模块的可见泛围提到了当前，所以，我们可以直接使用这个两个模块下面定义的函数。最佳实践就是这样，直接引入下级模块，而不是直接引入函数。
 
 像下面这样直接引入函数：
 
@@ -316,7 +332,7 @@ fn main() {
 }
 ```
 
-这样做在上面这个很简单的项目中，Rust不会报错，一旦项目变大，将很容易存在函数命名冲突，这里Rust将无法正常执行。比如像下面这样：
+这样做在上面这个很简单的项目中，Rust不会报错，一旦项目变大，将很容易存在函数命名冲突。比如像下面这样：
 
 ```
 extern crate phrases;
