@@ -326,4 +326,6 @@ fn main() {
 
 ## 相关资源
 
-敬请期待
+http://arthurtw.github.io/2014/11/30/rust-borrow-lifetimes.html
+
+http://rust.cc/t/yong-you-guan-xi-zhuan-yi-zu-jie-zu-jie-qi-he-sheng-cun-qi-xue-xi-bi-ji/103
