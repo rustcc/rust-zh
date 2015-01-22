@@ -131,7 +131,7 @@ mod greetings;
 mod farewells;
 ```
 
-同样，这个声明将告诉Rust自动寻找`src/english/greetings.rs`、`src/chinese/greetings.rs`或者`src/english/farewells/mod/rs`、`src/chinese/farewells/mod.rs`。
+同样，这个声明将告诉Rust自动寻找`src/english/greetings.rs`、`src/chinese/greetings.rs`或者`src/english/farewells/mod.rs`、`src/chinese/farewells/mod.rs`。
 
 截止目前，`src/english`和`src/chinese`下所有文件都是空的。下面，我们将在相应的文件中定义一些函数。
 
