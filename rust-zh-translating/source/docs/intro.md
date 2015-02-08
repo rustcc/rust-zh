@@ -5,17 +5,17 @@ accomplishes these goals by being memory safe without using garbage collection.
 
 This introduction will give you a rough idea of what Rust is like, eliding many
 details. It does not require prior experience with systems programming, but you
-may find the syntax easier if you've used a 'curly brace' programming language
+may find the syntax easier if you've used a "curly brace" programming language
 before, like C or JavaScript. The concepts are more important than the syntax,
-so don't worry if you don't get every last detail: you can read [the
-Guide](guide.html) to get a more complete explanation.
+so don't worry if you don't get every last detail: you can read [The
+Rust Programming Language](book/index.html) to get a more complete explanation.
 
 Because this is about high-level concepts, you don't need to actually install
 Rust to follow along. If you'd like to anyway, check out [the
 homepage](http://rust-lang.org) for explanation.
 
 To show off Rust, let's talk about how easy it is to get started with Rust.
-Then, we'll talk about Rust's most interesting feature, **ownership**, and
+Then, we'll talk about Rust's most interesting feature, *ownership*, and
 then discuss how it makes concurrency easier to reason about. Finally,
 we'll talk about how Rust breaks down the perceived dichotomy between speed
 and safety.
@@ -57,18 +57,18 @@ version = "0.0.1"
 authors = ["Your Name <you@example.com>"]
 ```
 
-This is called a **manifest**, and it contains all of the metadata that Cargo
-needs to compile your project. 
+This is called a *manifest*, and it contains all of the metadata that Cargo
+needs to compile your project.
 
 Here's what's in `src/main.rs`:
 
 ```{rust}
 fn main() {
-    println!("Hello, world!")
+    println!("Hello, world!");
 }
 ```
 
-Cargo generated a 'hello world' for us. We'll talk more about the syntax here
+Cargo generated a "Hello World" for us. We'll talk more about the syntax here
 later, but that's what Rust code looks like! Let's compile and run it:
 
 ```{bash}
@@ -106,9 +106,9 @@ use semver::Version;
 
 fn main() {
     assert!(Version::parse("1.2.3") == Ok(Version {
-        major: 1u,
-        minor: 2u,
-        patch: 3u,
+        major: 1u64,
+        minor: 2u64,
+        patch: 3u64,
         pre: vec!(),
         build: vec!(),
     }));
@@ -146,8 +146,8 @@ Enough about tools, let's talk code!
 
 # Ownership
 
-Rust's defining feature is 'memory safety without garbage collection.' Let's
-take a moment to talk about what that means. **Memory safety** means that the
+Rust's defining feature is "memory safety without garbage collection". Let's
+take a moment to talk about what that means. *Memory safety* means that the
 programming language eliminates certain kinds of bugs, such as [buffer
 overflows](http://en.wikipedia.org/wiki/Buffer_overflow) and [dangling
 pointers](http://en.wikipedia.org/wiki/Dangling_pointer). These problems occur
@@ -155,13 +155,13 @@ when you have unrestricted access to memory. As an example, here's some Ruby
 code:
 
 ```{ruby}
-v = [];
+v = []
 
-v.push("Hello");
+v.push("Hello")
 
-x = v[0];
+x = v[0]
 
-v.push("world");
+v.push("world")
 
 puts x
 ```
@@ -170,7 +170,7 @@ We make an array, `v`, and then call `push` on it. `push` is a method which
 adds an element to the end of an array.
 
 Next, we make a new variable, `x`, that's equal to the first element of
-the array. Simple, but this is where the 'bug' will appear.
+the array. Simple, but this is where the "bug" will appear.
 
 Let's keep going. We then call `push` again, pushing "world" onto the
 end of the array. `v` now is `["Hello", "world"]`.
@@ -207,7 +207,7 @@ and two...
 
 ```{bash}
 $ g++ hello.cpp -Wall -Werror
-$ ./a.out 
+$ ./a.out
 Segmentation fault (core dumped)
 ```
 
@@ -222,7 +222,7 @@ its length changes, we may need to allocate more memory. In Ruby, this happens
 as well, we just don't think about it very often. So why does the C++ version
 segfault when we allocate more memory?
 
-The answer is that in the C++ version, `x` is a **reference** to the memory
+The answer is that in the C++ version, `x` is a *reference* to the memory
 location where the first element of the array is stored. But in Ruby, `x` is a
 standalone value, not connected to the underyling array at all. Let's dig into
 the details for a moment. Your program has access to memory, provided to it by
@@ -313,7 +313,7 @@ print `"Hello"`, or does Rust crash?
 
 Neither. It refuses to compile:
 
-```{notrust,ignore}
+```bash
 $ cargo run
    Compiling hello_world v0.0.1 (file:///Users/you/src/hello_world)
 main.rs:8:5: 8:6 error: cannot borrow `v` as mutable because it is also borrowed as immutable
@@ -332,11 +332,11 @@ error: aborting due to previous error
 
 When we try to mutate the array by `push`ing it the second time, Rust throws
 an error. It says that we "cannot borrow v as mutable because it is also
-borrowed as immutable." What's up with "borrowed"?
+borrowed as immutable." What does it mean by "borrowed"?
 
-In Rust, the type system encodes the notion of **ownership**. The variable `v`
-is an "owner" of the vector. When we make a reference to `v`, we let that
-variable (in this case, `x`) 'borrow' it for a while. Just like if you own a
+In Rust, the type system encodes the notion of *ownership*. The variable `v`
+is an *owner* of the vector. When we make a reference to `v`, we let that
+variable (in this case, `x`) *borrow* it for a while. Just like if you own a
 book, and you lend it to me, I'm borrowing the book.
 
 So, when I try to modify the vector with the second call to `push`, I need
@@ -389,38 +389,46 @@ safe concurrent programs.
 Here's an example of a concurrent Rust program:
 
 ```{rust}
+use std::thread::Thread;
+
 fn main() {
-    for _ in range(0u, 10u) {
-        spawn(proc() {
+    let guards: Vec<_> = (0..10).map(|_| {
+        Thread::scoped(|| {
             println!("Hello, world!");
-        });
-    }
+        })
+    }).collect();
 }
 ```
 
-This program creates ten threads, who all print `Hello, world!`. The `spawn`
-function takes one argument, a `proc`. 'proc' is short for 'procedure,' and is
-a form of closure. This closure is executed in a new thread, created by `spawn`
-itself.
+This program creates ten threads, which all print `Hello, world!`. The `scoped`
+function takes one argument, a closure, indicated by the double bars `||`. This
+closure is executed in a new thread created by `scoped`. The method is called
+`scoped` because it returns a 'join guard', which will automatically join the
+child thread when it goes out of scope. Because we `collect` these guards into
+a `Vec<T>`, and that vector goes out of scope at the end of our program, our
+program will wait for every thread to finish before finishing.
 
-One common form of problem in concurrent programs is a 'data race.' This occurs
-when two different threads attempt to access the same location in memory in a
-non-synchronized way, where at least one of them is a write. If one thread is
-attempting to read, and one thread is attempting to write, you cannot be sure
-that your data will not be corrupted. Note the first half of that requirement:
-two threads that attempt to access the same location in memory. Rust's
-ownership model can track which pointers own which memory locations, which
-solves this problem.
+One common form of problem in concurrent programs is a *data race*.
+This occurs when two different threads attempt to access the same
+location in memory in a non-synchronized way, where at least one of
+them is a write. If one thread is attempting to read, and one thread
+is attempting to write, you cannot be sure that your data will not be
+corrupted. Note the first half of that requirement: two threads that
+attempt to access the same location in memory. Rust's ownership model
+can track which pointers own which memory locations, which solves this
+problem.
 
 Let's see an example. This Rust code will not compile:
 
 ```{rust,ignore}
-fn main() {
-    let mut numbers = vec![1i, 2i, 3i];
+use std::thread::Thread;
 
-    for i in range(0u, 3u) {
-        spawn(proc() {
-            for j in range(0, 3) { numbers[j] += 1 }
+fn main() {
+    let mut numbers = vec![1, 2, 3];
+
+    for i in 0..3 {
+        Thread::spawn(move || {
+            for j in 0..3 { numbers[j] += 1 }
         });
     }
 }
@@ -428,29 +436,34 @@ fn main() {
 
 It gives us this error:
 
-```{notrust,ignore}
+```text
 6:71 error: capture of moved value: `numbers`
-    for j in range(0, 3) { numbers[j] += 1 }
-               ^~~~~~~
-7:50 note: `numbers` moved into closure environment here because it has type `proc():Send`, which is non-copyable (perhaps you meant to use clone()?)
-    spawn(proc() {
-        for j in range(0, 3) { numbers[j] += 1 }
+    for j in 0..3 { numbers[j] += 1 }
+                    ^~~~~~~
+7:50 note: `numbers` moved into closure environment here
+    spawn(move || {
+        for j in 0..3 { numbers[j] += 1 }
     });
 6:79 error: cannot assign to immutable dereference (dereference is implicit, due to indexing)
-        for j in range(0, 3) { numbers[j] += 1 }
-                           ^~~~~~~~~~~~~~~
+        for j in 0..3 { numbers[j] += 1 }
+                        ^~~~~~~~~~~~~~~
 ```
 
-It mentions that "numbers moved into closure environment". Because we referred
-to `numbers` inside of our `proc`, and we create three `proc`s, we would have
-three references. Rust detects this and gives us the error: we claim that
-`numbers` has ownership, but our code tries to make three owners. This may
-cause a safety problem, so Rust disallows it.
+It mentions that "numbers moved into closure environment". Because we
+declared the closure as a moving closure, and it referred to
+`numbers`, the closure will try to take ownership of the vector. But
+the closure itself is created in a loop, and hence we will actually
+create three closures, one for every iteration of the loop. This means
+that all three of those closures would try to own `numbers`, which is
+impossible -- `numbers` must have just one owner. Rust detects this
+and gives us the error: we claim that `numbers` has ownership, but our
+code tries to make three owners. This may cause a safety problem, so
+Rust disallows it.
 
 What to do here? Rust has two types that helps us: `Arc<T>` and `Mutex<T>`.
-"Arc" stands for "atomically reference counted." In other words, an Arc will
+*Arc* stands for "atomically reference counted". In other words, an Arc will
 keep track of the number of references to something, and not free the
-associated resource until the count is zero. The 'atomic' portion refers to an
+associated resource until the count is zero. The *atomic* portion refers to an
 Arc's usage of concurrency primitives to atomically update the count, making it
 safe across threads. If we use an Arc, we can have our three references. But,
 an Arc does not allow mutable borrows of the data it holds, and we want to
@@ -461,19 +474,18 @@ mutation doesn't cause a data race.
 Here's what using an Arc with a Mutex looks like:
 
 ```{rust}
+use std::thread::Thread;
 use std::sync::{Arc,Mutex};
 
 fn main() {
-    let numbers = Arc::new(Mutex::new(vec![1i, 2i, 3i]));
+    let numbers = Arc::new(Mutex::new(vec![1, 2, 3]));
 
-    for i in range(0u, 3u) {
+    for i in 0us..3 {
         let number = numbers.clone();
-        spawn(proc() {
-            let mut array = number.lock();
-
-            (*array)[i] += 1;
-
-            println!("numbers[{}] is {}", i, (*array)[i]);
+        Thread::spawn(move || {
+            let mut array = number.lock().unwrap();
+            array[i] += 1;
+            println!("numbers[{}] is {}", i, array[i]);
         });
     }
 }
@@ -512,23 +524,25 @@ give us assurance _at compile time_ that we weren't doing something incorrect
 with regards to concurrency. In order to share ownership, we were forced to be
 explicit and use a mechanism to ensure that it would be properly handled.
 
-# Safety _and_ speed
+# Safety _and_ Speed
 
-Safety and speed are always presented as a continuum. On one hand, you have
-maximum speed, but no safety. On the other, you have absolute safety, with no
-speed. Rust seeks to break out of this mode by introducing safety at compile
-time, ensuring that you haven't done anything wrong, while compiling to the
-same low-level code you'd expect without the safety.
+Safety and speed are always presented as a continuum. At one end of the spectrum,
+you have maximum speed, but no safety. On the other end, you have absolute safety
+with no speed. Rust seeks to break out of this paradigm by introducing safety at
+compile time, ensuring that you haven't done anything wrong, while compiling to
+the same low-level code you'd expect without the safety.
 
 As an example, Rust's ownership system is _entirely_ at compile time. The
 safety check that makes this an error about moved values:
 
 ```{rust,ignore}
-fn main() {
-    let vec = vec![1i, 2, 3];
+use std::thread::Thread;
 
-    for i in range(1u, 3) {
-        spawn(proc() {
+fn main() {
+    let vec = vec![1, 2, 3];
+
+    for i in 0us..3 {
+        Thread::spawn(move || {
             println!("{}", vec[i]);
         });
     }
@@ -541,9 +555,9 @@ you can remove it. As an example, this is a poor way to iterate through
 a vector:
 
 ```{rust}
-let vec = vec![1i, 2, 3];
+let vec = vec![1, 2, 3];
 
-for i in range(1u, vec.len()) {
+for i in 0..vec.len() {
      println!("{}", vec[i]);
 }
 ```
@@ -553,7 +567,7 @@ that we don't try to access an invalid index. However, we can remove this
 while retaining safety. The answer is iterators:
 
 ```{rust}
-let vec = vec![1i, 2, 3];
+let vec = vec![1, 2, 3];
 
 for x in vec.iter() {
     println!("{}", x);
@@ -572,5 +586,6 @@ the type system helps you find bugs, how Rust can help you write correct
 concurrent code, and how you don't have to pay a speed cost for much of this
 safety.
 
-To continue your Rustic education, read [the guide](guide.html) for a more
-in-depth exploration of Rust's syntax and concepts.
+To continue your Rustic education, read [The Rust Programming
+Language](book/index.html) for a more in-depth exploration of Rust's syntax and
+concepts.
