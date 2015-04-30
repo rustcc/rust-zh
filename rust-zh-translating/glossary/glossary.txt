@@ -1,1 +1,0 @@
-RustCC	Rust中文圈	Rust Chinese Community
